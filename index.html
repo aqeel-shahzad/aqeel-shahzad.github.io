@@ -29,7 +29,7 @@
       --radius-lg: 28px;
       --radius-md: 20px;
       --radius-sm: 14px;
-      --max-width: 1160px;
+      --max-width: 1280px;
       --font: 'DM Sans', ui-sans-serif, system-ui, sans-serif;
       --mono: 'DM Mono', ui-monospace, monospace;
     }
@@ -234,8 +234,8 @@
 
     .hero-grid {
       display: grid;
-      grid-template-columns: minmax(0, 1.45fr) minmax(300px, 0.55fr);
-      gap: 56px;
+      grid-template-columns: minmax(0, 1.45fr) minmax(320px, 0.55fr);
+      gap: 72px;
       align-items: center;
     }
 
@@ -350,9 +350,8 @@
 
     /* ─── TOOL RIBBON ─── */
     .tool-ribbon {
-      width: 100%;
-      margin-top: 24px;
-      padding: 22px 26px;
+      margin-top: 22px;
+      padding: 20px 22px;
       border-radius: 22px;
       border: 1px solid var(--line);
       background: rgba(255,255,255,0.025);
@@ -389,12 +388,12 @@
       display: flex;
       align-items: center;
       gap: 8px;
-      padding: 8px 12px 8px 10px;
+      padding: 8px 14px 8px 10px;
       border-radius: 12px;
       border: 1px solid rgba(255,255,255,0.08);
       background: rgba(255,255,255,0.04);
       color: var(--muted);
-      font-size: 0.82rem;
+      font-size: 0.84rem;
       font-weight: 600;
       transition: border-color 0.2s, background 0.2s, color 0.2s, transform 0.2s;
       cursor: default;
@@ -944,10 +943,11 @@
       .project-card.featured .project-visual { min-height: 220px; }
       .contact-actions { justify-content: flex-start; }
       .skills-grid { grid-template-columns: repeat(2, 1fr); }
+
       .tool-logos {
-      flex-wrap: wrap;
+        flex-wrap: wrap;
+      }
     }
-        }
 
     @media (max-width: 680px) {
       .container { width: min(100% - 24px, var(--max-width)); }
@@ -991,6 +991,7 @@
 
           <p class="hero-copy">
             I'm Aqeel Shahzad — an MSc Business Analytics student at Queen's University Belfast with nearly five years of commercial, client-facing, and stakeholder experience across the UK, UAE, and Pakistan. I combine international business experience with SQL, R, Power BI, and machine learning to turn business data into practical decisions.
+</p>
           </p>
 
           <div class="button-row">
