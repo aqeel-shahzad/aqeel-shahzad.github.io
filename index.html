@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Aqeel Shahzad | Business Analytics Portfolio</title>
+  <title>Aqeel Shahzad | MSc Business Analytics Portfolio</title>
   <meta name="description" content="Business Analytics portfolio showcasing projects in Python, R, SQL, Power BI, machine learning, text analytics, optimisation, and dashboarding." />
 
   <style>
@@ -349,6 +349,50 @@
       margin-top: 34px;
     }
 
+    .tool-ribbon {
+      margin-top: 18px;
+      padding: 16px 18px;
+      border-radius: 22px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.045);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .tool-ribbon-label {
+      color: var(--muted);
+      font-size: 0.82rem;
+      font-weight: 900;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .tool-logos {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .tool-logo {
+      min-height: 36px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(56,189,248,0.20);
+      background: rgba(56,189,248,0.08);
+      color: #dff6ff;
+      font-size: 0.82rem;
+      font-weight: 900;
+      letter-spacing: -0.01em;
+    }
+
     .metric-card {
       min-height: 118px;
       padding: 18px;
@@ -666,6 +710,11 @@
     }
 
     @media (max-width: 980px) {
+      .tool-ribbon {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
       .hero-grid,
       .section-header,
       .about-grid,
@@ -756,9 +805,9 @@
       <div class="container hero-grid">
         <div class="hero-main">
           <div class="eyebrow">MSc Business Analytics Portfolio</div>
-          <h1>Turning data into <span class="gradient-text">business decisions.</span></h1>
+          <h1>Commercial experience, now powered by <span class="gradient-text">business analytics.</span></h1>
           <p class="hero-copy">
-            I am Aqeel Shahzad, an MSc Business Analytics student at Queen's University Belfast. I build applied analytics projects across customer analytics, marketing analytics, machine learning, NLP, optimisation, and business intelligence.
+            I am Aqeel Shahzad, an MSc Business Analytics student at Queen's University Belfast with nearly five years of experience across SaaS sales, stakeholder engagement, market expansion, and client-facing roles. I am now shifting into analytics by combining commercial acumen with SQL, R, Power BI, Excel, and data storytelling to turn business data into practical decisions.
           </p>
 
           <div class="button-row">
@@ -770,20 +819,32 @@
 
           <div class="metrics" aria-label="Portfolio highlights">
             <div class="metric-card">
+              <strong>5 yrs</strong>
+              <span>Commercial and client-facing experience</span>
+            </div>
+            <div class="metric-card">
+              <strong>#1 SDR</strong>
+              <span>FY25 opportunity-qualified performance</span>
+            </div>
+            <div class="metric-card">
+              <strong>£400k</strong>
+              <span>Opportunity value generated in SaaS sales</span>
+            </div>
+            <div class="metric-card">
               <strong>5+</strong>
-              <span>Applied analytics projects</span>
+              <span>Applied analytics portfolio projects</span>
             </div>
-            <div class="metric-card">
-              <strong>20k+</strong>
-              <span>Customer reviews analysed</span>
-            </div>
-            <div class="metric-card">
-              <strong>4.9k+</strong>
-              <span>Retail records modelled</span>
-            </div>
-            <div class="metric-card">
-              <strong>Python · R · BI</strong>
-              <span>Core analytics toolkit</span>
+          </div>
+
+          <div class="tool-ribbon" aria-label="Technical toolkit">
+            <span class="tool-ribbon-label">Technical Toolkit</span>
+            <div class="tool-logos">
+              <span class="tool-logo">SQL</span>
+              <span class="tool-logo">R</span>
+              <span class="tool-logo">Power BI</span>
+              <span class="tool-logo">Excel</span>
+              <span class="tool-logo">Tableau</span>
+              <span class="tool-logo">Python</span>
             </div>
           </div>
         </div>
@@ -802,29 +863,29 @@
               <div class="workflow-item">
                 <div class="workflow-number">01</div>
                 <div>
-                  <strong>Frame the decision</strong>
-                  <span>Start with the business problem, not the tool.</span>
+                  <strong>Commercial context</strong>
+                  <span>Understand the customer, market, and stakeholder problem first.</span>
                 </div>
               </div>
               <div class="workflow-item">
                 <div class="workflow-number">02</div>
                 <div>
-                  <strong>Prepare the data</strong>
+                  <strong>Data preparation</strong>
                   <span>Clean, validate, transform, and document assumptions.</span>
                 </div>
               </div>
               <div class="workflow-item">
                 <div class="workflow-number">03</div>
                 <div>
-                  <strong>Model and evaluate</strong>
-                  <span>Use statistical, ML, segmentation, or optimisation methods.</span>
+                  <strong>Analytics methods</strong>
+                  <span>Use BI, statistics, ML, segmentation, or optimisation methods.</span>
                 </div>
               </div>
               <div class="workflow-item">
                 <div class="workflow-number">04</div>
                 <div>
-                  <strong>Explain the outcome</strong>
-                  <span>Translate results into clear recommendations.</span>
+                  <strong>Business action</strong>
+                  <span>Translate findings into recommendations stakeholders can use.</span>
                 </div>
               </div>
             </div>
@@ -838,20 +899,20 @@
         <div class="section-header">
           <div>
             <div class="section-kicker">About</div>
-            <h2 class="section-title">Analytics with a decision focus.</h2>
+            <h2 class="section-title">From sales insight to analytics impact.</h2>
           </div>
           <p class="section-copy">
-            My portfolio is designed around one idea: analytics should make business choices clearer. Each project connects technical analysis with practical recommendations.
+            My background gives me a practical understanding of customers, revenue, stakeholder needs, and market expansion. My analytics work builds on that foundation by using data to make business choices clearer.
           </p>
         </div>
 
         <div class="about-grid">
           <div class="about-text">
             <p>
-              I am developing a Business Analytics portfolio across predictive modelling, dashboarding, customer analytics, marketing analytics, text analytics, and optimisation. My work combines technical methods with business interpretation so that outputs are useful for decision-makers.
+              I am moving into the analytics industry after building nearly five years of commercial experience across SaaS sales, client relations, systems training, hospitality sales, and business development. This gives me a strong understanding of how business teams use data, KPIs, forecasts, dashboards, and customer insight in real decision environments.
             </p>
             <p>
-              I use Python, R, SQL, Excel, and Power BI to prepare data, build models, test assumptions, create visuals, and communicate findings. I am especially interested in roles where analytics supports performance improvement, customer understanding, resource allocation, and strategic decision-making.
+              I use SQL, R, Power BI, Excel, Tableau, and Python to prepare data, build models, test assumptions, create visuals, and communicate findings. I am especially interested in roles where analytics supports performance improvement, customer understanding, pipeline and market analysis, resource allocation, and strategic decision-making.
             </p>
           </div>
 
@@ -862,11 +923,11 @@
             </div>
             <div class="focus-item">
               <strong>Current focus</strong>
-              <span>Machine learning, business intelligence, NLP, optimisation, and decision analytics.</span>
+              <span>Business intelligence, SQL, R, Power BI, machine learning, NLP, optimisation, and decision analytics.</span>
             </div>
             <div class="focus-item">
               <strong>Career direction</strong>
-              <span>Business Analyst, Data Analyst, BI Analyst, or Analytics Consultant roles.</span>
+              <span>Business Analyst, Data Analyst, BI Analyst, RevOps Analyst, or Analytics Consultant roles.</span>
             </div>
           </div>
         </div>
@@ -1113,8 +1174,5 @@
       <span>Built with GitHub Pages.</span>
     </div>
   </footer>
-</body>
-</html>
-
 </body>
 </html>
