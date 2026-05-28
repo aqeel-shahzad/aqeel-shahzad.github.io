@@ -5,20 +5,25 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Aqeel Shahzad | Business Analytics Portfolio</title>
   <meta name="description" content="Business Analytics portfolio showcasing projects in Python, R, SQL, Power BI, machine learning, text analytics, optimisation, and dashboarding." />
+
   <style>
     :root {
-      --bg: #0b1020;
-      --bg-soft: #11182f;
-      --card: #151d36;
-      --card-hover: #1b2544;
-      --text: #f5f7fb;
-      --muted: #aab4d4;
+      --bg: #070b16;
+      --surface: #0d1426;
+      --surface-2: #111a31;
+      --surface-3: #16213d;
+      --text: #f7f9fc;
+      --muted: #a7b1c8;
+      --muted-2: #7f8ba5;
+      --line: rgba(255, 255, 255, 0.09);
       --accent: #38bdf8;
-      --accent-2: #a78bfa;
-      --line: rgba(255, 255, 255, 0.1);
-      --success: #34d399;
-      --warning: #fbbf24;
-      --shadow: 0 24px 60px rgba(0, 0, 0, 0.28);
+      --accent-2: #8b5cf6;
+      --accent-3: #22c55e;
+      --shadow: 0 24px 80px rgba(0, 0, 0, 0.32);
+      --radius-lg: 28px;
+      --radius-md: 20px;
+      --radius-sm: 14px;
+      --max-width: 1140px;
     }
 
     * {
@@ -34,11 +39,11 @@
     body {
       font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       background:
-        radial-gradient(circle at top left, rgba(56, 189, 248, 0.16), transparent 34%),
-        radial-gradient(circle at top right, rgba(167, 139, 250, 0.15), transparent 35%),
-        var(--bg);
+        radial-gradient(circle at 8% 0%, rgba(56, 189, 248, 0.16), transparent 30%),
+        radial-gradient(circle at 92% 8%, rgba(139, 92, 246, 0.18), transparent 30%),
+        linear-gradient(180deg, #070b16 0%, #09101f 45%, #070b16 100%);
       color: var(--text);
-      line-height: 1.6;
+      line-height: 1.65;
     }
 
     a {
@@ -46,39 +51,69 @@
       text-decoration: none;
     }
 
-    img {
-      max-width: 100%;
-      display: block;
-    }
-
     .container {
-      width: min(1120px, calc(100% - 40px));
+      width: min(var(--max-width), calc(100% - 40px));
       margin: 0 auto;
     }
 
-    header {
+    .section {
+      padding: 88px 0;
+    }
+
+    .section-header {
+      display: grid;
+      grid-template-columns: 0.85fr 1.15fr;
+      gap: 36px;
+      align-items: end;
+      margin-bottom: 34px;
+    }
+
+    .section-kicker {
+      color: var(--accent);
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    .section-title {
+      font-size: clamp(2rem, 4vw, 3.15rem);
+      line-height: 1;
+      letter-spacing: -0.06em;
+    }
+
+    .section-copy {
+      color: var(--muted);
+      max-width: 640px;
+      font-size: 1rem;
+    }
+
+    /* Header */
+    .site-header {
       position: sticky;
       top: 0;
-      z-index: 50;
+      z-index: 100;
       backdrop-filter: blur(18px);
-      background: rgba(11, 16, 32, 0.78);
+      background: rgba(7, 11, 22, 0.78);
       border-bottom: 1px solid var(--line);
     }
 
     .nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
       min-height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
     }
 
-    .logo {
-      font-weight: 800;
-      letter-spacing: -0.04em;
-      font-size: 1.2rem;
+    .brand {
+      font-weight: 900;
+      font-size: 1.12rem;
+      letter-spacing: -0.045em;
     }
 
-    .logo span {
+    .brand span {
       color: var(--accent);
     }
 
@@ -87,256 +122,393 @@
       align-items: center;
       gap: 24px;
       color: var(--muted);
-      font-size: 0.95rem;
+      font-size: 0.94rem;
+      font-weight: 650;
+    }
+
+    .nav-links a {
+      transition: 0.2s ease;
     }
 
     .nav-links a:hover {
       color: var(--text);
     }
 
-    .hero {
-      padding: 92px 0 72px;
-    }
-
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1.3fr 0.7fr;
-      gap: 42px;
-      align-items: center;
-    }
-
-    .eyebrow {
-      color: var(--accent);
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.14em;
-      font-size: 0.78rem;
-      margin-bottom: 16px;
-    }
-
-    h1 {
-      font-size: clamp(2.4rem, 6vw, 5rem);
-      line-height: 0.95;
-      letter-spacing: -0.07em;
-      max-width: 760px;
-      margin-bottom: 24px;
-    }
-
-    .gradient-text {
-      background: linear-gradient(135deg, var(--accent), var(--accent-2));
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-    }
-
-    .hero p {
-      max-width: 680px;
-      color: var(--muted);
-      font-size: 1.1rem;
-      margin-bottom: 30px;
-    }
-
-    .hero-actions {
+    /* Buttons */
+    .button-row {
       display: flex;
       flex-wrap: wrap;
-      gap: 14px;
-      margin-bottom: 34px;
+      gap: 12px;
+      align-items: center;
     }
 
     .btn {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 8px;
-      padding: 12px 18px;
+      min-height: 44px;
+      padding: 11px 17px;
       border-radius: 999px;
       border: 1px solid var(--line);
-      font-weight: 700;
-      transition: 0.2s ease;
-    }
-
-    .btn-primary {
-      background: linear-gradient(135deg, var(--accent), var(--accent-2));
-      color: #07101f;
-      border: none;
+      color: var(--text);
+      font-weight: 800;
+      font-size: 0.94rem;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+      white-space: nowrap;
     }
 
     .btn:hover {
       transform: translateY(-2px);
+      border-color: rgba(255,255,255,0.22);
       box-shadow: var(--shadow);
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      border: none;
+      color: #06111f;
+    }
+
+    .btn-soft {
+      background: rgba(255,255,255,0.045);
+    }
+
+    /* Hero */
+    .hero {
+      padding: 92px 0 64px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.25fr) minmax(320px, 0.75fr);
+      gap: 42px;
+      align-items: stretch;
+    }
+
+    .hero-main {
+      min-height: 560px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      width: fit-content;
+      gap: 10px;
+      padding: 8px 12px;
+      border: 1px solid rgba(56,189,248,0.24);
+      border-radius: 999px;
+      background: rgba(56,189,248,0.08);
+      color: #bae6fd;
+      font-size: 0.78rem;
+      font-weight: 850;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 22px;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--accent-3);
+      box-shadow: 0 0 0 5px rgba(34, 197, 94, 0.12);
+    }
+
+    h1 {
+      max-width: 820px;
+      margin-bottom: 24px;
+      font-size: clamp(3rem, 7vw, 5.7rem);
+      line-height: 0.93;
+      letter-spacing: -0.075em;
+    }
+
+    .gradient-text {
+      background: linear-gradient(135deg, var(--accent), #c4b5fd 58%, var(--accent-2));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .hero-copy {
+      max-width: 720px;
+      margin-bottom: 30px;
+      color: var(--muted);
+      font-size: 1.12rem;
     }
 
     .hero-card {
-      background: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.03));
+      height: 100%;
+      min-height: 560px;
       border: 1px solid var(--line);
-      border-radius: 28px;
-      padding: 28px;
+      border-radius: 34px;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.075), rgba(255,255,255,0.028)),
+        rgba(13,20,38,0.92);
       box-shadow: var(--shadow);
+      padding: 26px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      overflow: hidden;
+      position: relative;
     }
 
-    .hero-card h3 {
-      font-size: 1.1rem;
-      margin-bottom: 18px;
+    .hero-card::after {
+      content: "";
+      position: absolute;
+      inset: auto -80px -110px auto;
+      width: 250px;
+      height: 250px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(56,189,248,0.20), transparent 65%);
+      pointer-events: none;
     }
 
-    .stack-list {
+    .profile-panel {
+      position: relative;
+      z-index: 2;
+    }
+
+    .profile-top {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding-bottom: 22px;
+      border-bottom: 1px solid var(--line);
+      margin-bottom: 22px;
+    }
+
+    .avatar {
+      width: 64px;
+      height: 64px;
+      border-radius: 22px;
+      display: grid;
+      place-items: center;
+      font-weight: 950;
+      letter-spacing: -0.08em;
+      color: #06111f;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+    }
+
+    .profile-top h2 {
+      font-size: 1.18rem;
+      letter-spacing: -0.035em;
+    }
+
+    .profile-top p {
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+    .workflow-list {
       display: grid;
       gap: 12px;
     }
 
-    .stack-item {
-      display: flex;
-      justify-content: space-between;
-      gap: 18px;
-      padding: 13px 14px;
-      background: rgba(255,255,255,0.045);
-      border-radius: 16px;
-      border: 1px solid rgba(255,255,255,0.06);
+    .workflow-item {
+      display: grid;
+      grid-template-columns: 34px 1fr;
+      gap: 12px;
+      align-items: start;
+      padding: 14px;
+      border-radius: 18px;
+      border: 1px solid rgba(255,255,255,0.075);
+      background: rgba(255,255,255,0.04);
     }
 
-    .stack-item strong {
-      color: var(--text);
+    .workflow-number {
+      width: 34px;
+      height: 34px;
+      display: grid;
+      place-items: center;
+      border-radius: 12px;
+      background: rgba(56,189,248,0.11);
+      color: #bae6fd;
+      font-weight: 900;
+      font-size: 0.88rem;
     }
 
-    .stack-item span {
+    .workflow-item strong {
+      display: block;
+      margin-bottom: 2px;
+    }
+
+    .workflow-item span {
       color: var(--muted);
       font-size: 0.92rem;
-      text-align: right;
     }
 
     .metrics {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 16px;
-      margin-top: 28px;
+      gap: 14px;
+      margin-top: 34px;
     }
 
-    .metric {
+    .metric-card {
+      min-height: 118px;
       padding: 18px;
-      border-radius: 20px;
+      border-radius: 22px;
+      border: 1px solid var(--line);
       background: rgba(255,255,255,0.045);
-      border: 1px solid rgba(255,255,255,0.08);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
     }
 
-    .metric strong {
+    .metric-card strong {
       display: block;
-      font-size: 1.55rem;
-      letter-spacing: -0.04em;
+      font-size: 1.52rem;
+      line-height: 1.05;
+      letter-spacing: -0.055em;
     }
 
-    .metric span {
+    .metric-card span {
       color: var(--muted);
       font-size: 0.9rem;
     }
 
-    section {
-      padding: 72px 0;
-    }
-
-    .section-heading {
-      display: flex;
-      justify-content: space-between;
-      gap: 28px;
-      align-items: end;
-      margin-bottom: 34px;
-    }
-
-    .section-heading h2 {
-      font-size: clamp(2rem, 4vw, 3rem);
-      letter-spacing: -0.06em;
-      line-height: 1;
-    }
-
-    .section-heading p {
-      max-width: 520px;
-      color: var(--muted);
-    }
-
-    .about-card {
-      background: var(--bg-soft);
-      border: 1px solid var(--line);
-      border-radius: 28px;
-      padding: 32px;
+    /* About */
+    .about-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 34px;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 22px;
     }
 
-    .about-card p {
+    .about-text,
+    .focus-card {
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      background: var(--surface);
+      padding: 30px;
+    }
+
+    .about-text p {
       color: var(--muted);
       margin-bottom: 16px;
     }
 
-    .highlight-list {
+    .about-text p:last-child {
+      margin-bottom: 0;
+    }
+
+    .focus-card {
       display: grid;
-      gap: 12px;
+      gap: 14px;
     }
 
-    .highlight {
+    .focus-item {
       padding: 16px;
-      background: rgba(255,255,255,0.045);
-      border: 1px solid rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.075);
       border-radius: 18px;
+      background: rgba(255,255,255,0.04);
     }
 
-    .highlight strong {
+    .focus-item strong {
       display: block;
       margin-bottom: 4px;
     }
 
-    .highlight span {
+    .focus-item span {
       color: var(--muted);
       font-size: 0.94rem;
     }
 
+    /* Projects */
     .projects-grid {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 22px;
+      align-items: stretch;
     }
 
     .project-card {
+      min-height: 100%;
+      display: flex;
+      flex-direction: column;
       overflow: hidden;
-      background: var(--card);
       border: 1px solid var(--line);
-      border-radius: 26px;
-      transition: 0.22s ease;
+      border-radius: var(--radius-lg);
+      background: var(--surface);
+      transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease, background 0.2s ease;
     }
 
     .project-card:hover {
-      background: var(--card-hover);
       transform: translateY(-4px);
+      border-color: rgba(56,189,248,0.26);
+      background: var(--surface-2);
       box-shadow: var(--shadow);
     }
 
-    .project-image {
-      height: 205px;
-      background:
-        linear-gradient(135deg, rgba(56,189,248,0.22), rgba(167,139,250,0.18)),
-        repeating-linear-gradient(45deg, rgba(255,255,255,0.04) 0 1px, transparent 1px 12px);
-      display: flex;
-      align-items: center;
-      justify-content: center;
+    .project-visual {
+      height: 190px;
       padding: 22px;
-      color: rgba(255,255,255,0.86);
-      text-align: center;
-      font-weight: 800;
-      letter-spacing: -0.04em;
-      font-size: 1.45rem;
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 16px;
+      background:
+        linear-gradient(135deg, rgba(56,189,248,0.18), rgba(139,92,246,0.14)),
+        linear-gradient(180deg, rgba(255,255,255,0.055), transparent),
+        var(--surface-3);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .project-visual::before {
+      content: "";
+      position: absolute;
+      inset: 20px;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.065) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.065) 1px, transparent 1px);
+      background-size: 28px 28px;
+      mask-image: linear-gradient(180deg, rgba(0,0,0,0.75), transparent);
+      pointer-events: none;
+    }
+
+    .project-visual-title {
+      position: relative;
+      z-index: 1;
+      max-width: 360px;
+      font-size: 1.35rem;
+      line-height: 1.05;
+      letter-spacing: -0.045em;
+      font-weight: 900;
+    }
+
+    .project-number {
+      position: relative;
+      z-index: 1;
+      color: rgba(255,255,255,0.42);
+      font-size: 3.5rem;
+      line-height: 0.8;
+      letter-spacing: -0.08em;
+      font-weight: 950;
     }
 
     .project-body {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
       padding: 24px;
     }
 
     .project-body h3 {
-      font-size: 1.35rem;
-      letter-spacing: -0.035em;
       margin-bottom: 10px;
+      font-size: 1.28rem;
+      line-height: 1.18;
+      letter-spacing: -0.045em;
     }
 
-    .project-body p {
+    .project-summary {
+      min-height: 82px;
       color: var(--muted);
+      font-size: 0.98rem;
       margin-bottom: 16px;
     }
 
@@ -350,96 +522,140 @@
     .tag {
       padding: 6px 10px;
       border-radius: 999px;
-      background: rgba(56, 189, 248, 0.1);
+      border: 1px solid rgba(56,189,248,0.20);
+      background: rgba(56,189,248,0.09);
       color: #bae6fd;
-      border: 1px solid rgba(56, 189, 248, 0.18);
-      font-size: 0.82rem;
-      font-weight: 700;
+      font-size: 0.79rem;
+      font-weight: 800;
     }
 
-    .project-meta {
+    .project-details {
       display: grid;
       gap: 10px;
-      margin: 18px 0;
+      padding: 16px;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.035);
+      border: 1px solid rgba(255,255,255,0.065);
       color: var(--muted);
-      font-size: 0.95rem;
+      font-size: 0.93rem;
+      margin-bottom: 18px;
     }
 
-    .project-meta strong {
+    .project-details strong {
       color: var(--text);
     }
 
-    .project-links {
+    .project-actions {
+      margin-top: auto;
+      padding-top: 2px;
       display: flex;
       flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 18px;
+      gap: 12px;
     }
 
-    .small-link {
-      font-weight: 800;
+    .text-link {
       color: var(--accent);
-      font-size: 0.94rem;
+      font-weight: 900;
+      font-size: 0.92rem;
     }
 
+    .text-link:hover {
+      color: #bae6fd;
+    }
+
+    .project-card.featured {
+      grid-column: 1 / -1;
+      display: grid;
+      grid-template-columns: 0.95fr 1.05fr;
+    }
+
+    .project-card.featured .project-visual {
+      height: auto;
+      min-height: 100%;
+    }
+
+    .project-card.featured .project-summary {
+      min-height: auto;
+    }
+
+    /* Skills */
     .skills-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 18px;
     }
 
     .skill-card {
-      background: var(--bg-soft);
+      min-height: 178px;
       border: 1px solid var(--line);
-      border-radius: 22px;
-      padding: 22px;
+      border-radius: 24px;
+      background: var(--surface);
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
     }
 
     .skill-card h3 {
+      font-size: 1.05rem;
       margin-bottom: 10px;
-      font-size: 1.08rem;
+      letter-spacing: -0.025em;
     }
 
     .skill-card p {
       color: var(--muted);
-      font-size: 0.96rem;
+      font-size: 0.95rem;
     }
 
-    .contact-card {
-      background: linear-gradient(135deg, rgba(56,189,248,0.16), rgba(167,139,250,0.16));
-      border: 1px solid var(--line);
-      border-radius: 30px;
-      padding: 40px;
+    .skill-pill {
+      width: fit-content;
+      margin-top: 18px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(139,92,246,0.10);
+      border: 1px solid rgba(139,92,246,0.20);
+      color: #ddd6fe;
+      font-size: 0.78rem;
+      font-weight: 850;
+    }
+
+    /* Contact */
+    .contact-panel {
       display: grid;
       grid-template-columns: 1fr auto;
-      gap: 28px;
+      gap: 32px;
       align-items: center;
+      padding: 42px;
+      border-radius: 34px;
+      border: 1px solid var(--line);
+      background:
+        linear-gradient(135deg, rgba(56,189,248,0.16), rgba(139,92,246,0.15)),
+        var(--surface);
+      box-shadow: var(--shadow);
     }
 
-    .contact-card h2 {
-      font-size: clamp(2rem, 4vw, 3rem);
-      letter-spacing: -0.06em;
-      line-height: 1;
+    .contact-panel h2 {
       margin-bottom: 12px;
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      line-height: 1;
+      letter-spacing: -0.065em;
     }
 
-    .contact-card p {
+    .contact-panel p {
+      max-width: 650px;
       color: var(--muted);
-      max-width: 620px;
     }
 
     .contact-actions {
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
       justify-content: flex-end;
     }
 
-    footer {
-      padding: 34px 0;
+    /* Footer */
+    .footer {
       border-top: 1px solid var(--line);
-      color: var(--muted);
-      font-size: 0.92rem;
+      padding: 32px 0;
+      color: var(--muted-2);
+      font-size: 0.9rem;
     }
 
     .footer-inner {
@@ -449,25 +665,30 @@
       flex-wrap: wrap;
     }
 
-    @media (max-width: 900px) {
+    @media (max-width: 980px) {
       .hero-grid,
-      .about-card,
-      .contact-card {
+      .section-header,
+      .about-grid,
+      .contact-panel {
         grid-template-columns: 1fr;
+      }
+
+      .hero-main,
+      .hero-card {
+        min-height: auto;
       }
 
       .metrics,
       .skills-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(2, minmax(0, 1fr));
       }
 
-      .projects-grid {
+      .project-card.featured {
         grid-template-columns: 1fr;
       }
 
-      .section-heading {
-        align-items: start;
-        flex-direction: column;
+      .project-card.featured .project-visual {
+        min-height: 230px;
       }
 
       .contact-actions {
@@ -475,26 +696,52 @@
       }
     }
 
-    @media (max-width: 680px) {
+    @media (max-width: 760px) {
+      .container {
+        width: min(100% - 28px, var(--max-width));
+      }
+
       .nav-links {
         display: none;
       }
 
+      .section {
+        padding: 68px 0;
+      }
+
+      .hero {
+        padding: 64px 0 46px;
+      }
+
+      h1 {
+        font-size: clamp(2.75rem, 15vw, 4rem);
+      }
+
       .metrics,
+      .projects-grid,
       .skills-grid {
         grid-template-columns: 1fr;
       }
 
-      .hero {
-        padding-top: 64px;
+      .metric-card {
+        min-height: 96px;
+      }
+
+      .project-summary {
+        min-height: auto;
+      }
+
+      .contact-panel {
+        padding: 28px;
       }
     }
   </style>
 </head>
+
 <body>
-  <header>
+  <header class="site-header">
     <div class="container nav">
-      <a class="logo" href="#top">Aqeel<span>.</span></a>
+      <a class="brand" href="#top">Aqeel Shahzad<span>.</span></a>
       <nav class="nav-links" aria-label="Main navigation">
         <a href="#about">About</a>
         <a href="#projects">Projects</a>
@@ -507,94 +754,117 @@
   <main id="top">
     <section class="hero">
       <div class="container hero-grid">
-        <div>
+        <div class="hero-main">
           <div class="eyebrow">MSc Business Analytics Portfolio</div>
           <h1>Turning data into <span class="gradient-text">business decisions.</span></h1>
-          <p>
-            I am Aqeel Shahzad, an MSc Business Analytics student at Queen's University Belfast. My work focuses on customer analytics, marketing analytics, machine learning, NLP, optimisation, and dashboarding.
+          <p class="hero-copy">
+            I am Aqeel Shahzad, an MSc Business Analytics student at Queen's University Belfast. I build applied analytics projects across customer analytics, marketing analytics, machine learning, NLP, optimisation, and business intelligence.
           </p>
-          <div class="hero-actions">
+
+          <div class="button-row">
             <a class="btn btn-primary" href="#projects">View Projects</a>
-            <a class="btn" href="assets/Aqeel-Resume.pdf" target="_blank" rel="noreferrer">Download CV</a>
-            <a class="btn" href="https://www.linkedin.com/in/shahzadaqeel/" target="_blank" rel="noreferrer">LinkedIn</a>
-            <a class="btn" href="https://github.com/aqeel-shahzad" target="_blank" rel="noreferrer">GitHub</a>
+            <a class="btn btn-soft" href="assets/Aqeel-Resume.pdf" target="_blank" rel="noreferrer">Download CV</a>
+            <a class="btn btn-soft" href="https://www.linkedin.com/in/shahzadaqeel/" target="_blank" rel="noreferrer">LinkedIn</a>
+            <a class="btn btn-soft" href="https://github.com/aqeel-shahzad" target="_blank" rel="noreferrer">GitHub</a>
           </div>
 
           <div class="metrics" aria-label="Portfolio highlights">
-            <div class="metric">
+            <div class="metric-card">
               <strong>5+</strong>
-              <span>Analytics projects</span>
+              <span>Applied analytics projects</span>
             </div>
-            <div class="metric">
+            <div class="metric-card">
               <strong>20k+</strong>
-              <span>Reviews analysed</span>
+              <span>Customer reviews analysed</span>
             </div>
-            <div class="metric">
+            <div class="metric-card">
               <strong>4.9k+</strong>
               <span>Retail records modelled</span>
             </div>
-            <div class="metric">
+            <div class="metric-card">
               <strong>Python · R · BI</strong>
-              <span>Technical toolkit</span>
+              <span>Core analytics toolkit</span>
             </div>
           </div>
         </div>
 
-        <aside class="hero-card" aria-label="Analytics workflow">
-          <h3>Analytics workflow</h3>
-          <div class="stack-list">
-            <div class="stack-item">
-              <strong>1. Problem</strong>
-              <span>Frame the business decision</span>
+        <aside class="hero-card" aria-label="Portfolio profile card">
+          <div class="profile-panel">
+            <div class="profile-top">
+              <div class="avatar">AS</div>
+              <div>
+                <h2>Aqeel Shahzad</h2>
+                <p>Business Analytics · Data Analytics · Decision Support</p>
+              </div>
             </div>
-            <div class="stack-item">
-              <strong>2. Data</strong>
-              <span>Clean, prepare, validate</span>
-            </div>
-            <div class="stack-item">
-              <strong>3. Model</strong>
-              <span>Predict, segment, optimise</span>
-            </div>
-            <div class="stack-item">
-              <strong>4. Insight</strong>
-              <span>Explain what matters</span>
-            </div>
-            <div class="stack-item">
-              <strong>5. Action</strong>
-              <span>Recommend next steps</span>
+
+            <div class="workflow-list">
+              <div class="workflow-item">
+                <div class="workflow-number">01</div>
+                <div>
+                  <strong>Frame the decision</strong>
+                  <span>Start with the business problem, not the tool.</span>
+                </div>
+              </div>
+              <div class="workflow-item">
+                <div class="workflow-number">02</div>
+                <div>
+                  <strong>Prepare the data</strong>
+                  <span>Clean, validate, transform, and document assumptions.</span>
+                </div>
+              </div>
+              <div class="workflow-item">
+                <div class="workflow-number">03</div>
+                <div>
+                  <strong>Model and evaluate</strong>
+                  <span>Use statistical, ML, segmentation, or optimisation methods.</span>
+                </div>
+              </div>
+              <div class="workflow-item">
+                <div class="workflow-number">04</div>
+                <div>
+                  <strong>Explain the outcome</strong>
+                  <span>Translate results into clear recommendations.</span>
+                </div>
+              </div>
             </div>
           </div>
         </aside>
       </div>
     </section>
 
-    <section id="about">
+    <section id="about" class="section">
       <div class="container">
-        <div class="section-heading">
-          <h2>About me</h2>
-          <p>Business analytics is not only about building models. It is about using analysis to improve decisions, priorities, and outcomes.</p>
+        <div class="section-header">
+          <div>
+            <div class="section-kicker">About</div>
+            <h2 class="section-title">Analytics with a decision focus.</h2>
+          </div>
+          <p class="section-copy">
+            My portfolio is designed around one idea: analytics should make business choices clearer. Each project connects technical analysis with practical recommendations.
+          </p>
         </div>
 
-        <div class="about-card">
-          <div>
+        <div class="about-grid">
+          <div class="about-text">
             <p>
-              I am building a portfolio across predictive analytics, decision analytics, marketing analytics, customer analytics, and business intelligence. My projects combine technical methods with clear business interpretation.
+              I am developing a Business Analytics portfolio across predictive modelling, dashboarding, customer analytics, marketing analytics, text analytics, and optimisation. My work combines technical methods with business interpretation so that outputs are useful for decision-makers.
             </p>
             <p>
-              I use Python, R, SQL, Excel, and Power BI to analyse structured and unstructured data, build models, create dashboards, and communicate recommendations for decision-makers.
+              I use Python, R, SQL, Excel, and Power BI to prepare data, build models, test assumptions, create visuals, and communicate findings. I am especially interested in roles where analytics supports performance improvement, customer understanding, resource allocation, and strategic decision-making.
             </p>
           </div>
 
-          <div class="highlight-list">
-            <div class="highlight">
-              <strong>Current focus</strong>
-              <span>Business Analytics, machine learning, dashboarding, and optimisation.</span>
-            </div>
-            <div class="highlight">
+          <div class="focus-card">
+            <div class="focus-item">
               <strong>Academic background</strong>
               <span>MSc Business Analytics, Queen's University Belfast.</span>
             </div>
-            <div class="highlight">
+            <div class="focus-item">
+              <strong>Current focus</strong>
+              <span>Machine learning, business intelligence, NLP, optimisation, and decision analytics.</span>
+            </div>
+            <div class="focus-item">
               <strong>Career direction</strong>
               <span>Business Analyst, Data Analyst, BI Analyst, or Analytics Consultant roles.</span>
             </div>
@@ -603,125 +873,155 @@
       </div>
     </section>
 
-    <section id="projects">
+    <section id="projects" class="section">
       <div class="container">
-        <div class="section-heading">
-          <h2>Featured projects</h2>
-          <p>Each project is framed around a business problem, the analytical methods used, and the decision value created.</p>
+        <div class="section-header">
+          <div>
+            <div class="section-kicker">Projects</div>
+            <h2 class="section-title">Featured analytics work.</h2>
+          </div>
+          <p class="section-copy">
+            These projects show how I approach business problems using data preparation, modelling, visualisation, interpretation, and recommendations.
+          </p>
         </div>
 
         <div class="projects-grid">
-          <article class="project-card">
-            <div class="project-image">Airline Customer Satisfaction Analytics</div>
+          <article class="project-card featured">
+            <div class="project-visual">
+              <div class="project-visual-title">Airline Customer Satisfaction Analytics</div>
+              <div class="project-number">01</div>
+            </div>
             <div class="project-body">
               <h3>Airline Customer Satisfaction Analytics</h3>
-              <p>Analysed airline review data using ratings, text analytics, sentiment analysis, and machine learning to understand what drives customer recommendation.</p>
+              <p class="project-summary">
+                Analysed airline review data using numerical ratings, text analytics, sentiment analysis, and machine learning to understand what drives customer recommendation behaviour.
+              </p>
               <div class="tags">
                 <span class="tag">Python</span>
                 <span class="tag">NLP</span>
                 <span class="tag">Machine Learning</span>
-                <span class="tag">Sentiment</span>
+                <span class="tag">Sentiment Analysis</span>
               </div>
-              <div class="project-meta">
+              <div class="project-details">
                 <div><strong>Business problem:</strong> What service factors drive airline recommendation?</div>
                 <div><strong>Methods:</strong> Classification, TF-IDF, VADER, RoBERTa, feature importance.</div>
                 <div><strong>Outcome:</strong> Identified value-for-money thresholds and service failure themes linked to non-recommendation.</div>
               </div>
-              <div class="project-links">
-                <a class="small-link" href="#" target="_blank" rel="noreferrer">View repository →</a>
-                <a class="small-link" href="#" target="_blank" rel="noreferrer">View report →</a>
+              <div class="project-actions">
+                <a class="text-link" href="#" target="_blank" rel="noreferrer">View repository →</a>
+                <a class="text-link" href="#" target="_blank" rel="noreferrer">View report →</a>
               </div>
             </div>
           </article>
 
           <article class="project-card">
-            <div class="project-image">Private-Label Coffee Strategy</div>
+            <div class="project-visual">
+              <div class="project-visual-title">Private-Label Coffee Strategy</div>
+              <div class="project-number">02</div>
+            </div>
             <div class="project-body">
               <h3>Marketing Analytics: Private-Label Coffee Strategy</h3>
-              <p>Designed a private-label coffee product strategy using customer segmentation, conjoint analysis, PCA positioning, and Power BI dashboarding.</p>
+              <p class="project-summary">
+                Designed a private-label coffee strategy using customer segmentation, conjoint analysis, PCA positioning, and Power BI dashboarding.
+              </p>
               <div class="tags">
                 <span class="tag">R</span>
                 <span class="tag">Power BI</span>
                 <span class="tag">Segmentation</span>
                 <span class="tag">Conjoint</span>
               </div>
-              <div class="project-meta">
+              <div class="project-details">
                 <div><strong>Business problem:</strong> Which customer segment and product concept should a retailer target?</div>
                 <div><strong>Methods:</strong> RFM, clustering, conjoint, PCA, market-share simulation.</div>
                 <div><strong>Outcome:</strong> Recommended a sustainable dark-roast Arabica capsule product at £5.</div>
               </div>
-              <div class="project-links">
-                <a class="small-link" href="#" target="_blank" rel="noreferrer">View repository →</a>
-                <a class="small-link" href="#" target="_blank" rel="noreferrer">View dashboard →</a>
+              <div class="project-actions">
+                <a class="text-link" href="#" target="_blank" rel="noreferrer">View repository →</a>
+                <a class="text-link" href="#" target="_blank" rel="noreferrer">View dashboard →</a>
               </div>
             </div>
           </article>
 
           <article class="project-card">
-            <div class="project-image">Hospital Capacity Planning</div>
+            <div class="project-visual">
+              <div class="project-visual-title">Hospital Capacity Planning</div>
+              <div class="project-number">03</div>
+            </div>
             <div class="project-body">
               <h3>Hospital Capacity Planning and Optimisation</h3>
-              <p>Built a demand and capacity allocation model for ophthalmology scheduling under limited outpatient and operating-room capacity.</p>
+              <p class="project-summary">
+                Built a demand and capacity allocation model for ophthalmology scheduling under limited outpatient and operating-room capacity.
+              </p>
               <div class="tags">
                 <span class="tag">R</span>
                 <span class="tag">Excel</span>
                 <span class="tag">Simulation</span>
                 <span class="tag">Optimisation</span>
               </div>
-              <div class="project-meta">
+              <div class="project-details">
                 <div><strong>Business problem:</strong> How should scarce hospital sessions be allocated across patient priorities?</div>
                 <div><strong>Methods:</strong> Markov demand modelling, simulation, delay-cost analysis.</div>
                 <div><strong>Outcome:</strong> Compared allocation rules and identified strategies to reduce urgency-weighted delays.</div>
               </div>
-              <div class="project-links">
-                <a class="small-link" href="#" target="_blank" rel="noreferrer">View repository →</a>
-                <a class="small-link" href="#" target="_blank" rel="noreferrer">View report →</a>
+              <div class="project-actions">
+                <a class="text-link" href="#" target="_blank" rel="noreferrer">View repository →</a>
+                <a class="text-link" href="#" target="_blank" rel="noreferrer">View report →</a>
               </div>
             </div>
           </article>
 
           <article class="project-card">
-            <div class="project-image">Innovation Impact Prediction</div>
+            <div class="project-visual">
+              <div class="project-visual-title">Innovation Impact Prediction</div>
+              <div class="project-number">04</div>
+            </div>
             <div class="project-body">
               <h3>Innovation Impact Prediction</h3>
-              <p>Explored predictors of innovation impact using citation outcomes, novelty measures, network features, regression, and machine learning.</p>
+              <p class="project-summary">
+                Explored predictors of innovation impact using citation outcomes, novelty measures, network features, regression, and machine learning.
+              </p>
               <div class="tags">
                 <span class="tag">R</span>
                 <span class="tag">LASSO</span>
                 <span class="tag">Random Forest</span>
                 <span class="tag">Regression</span>
               </div>
-              <div class="project-meta">
+              <div class="project-details">
                 <div><strong>Business problem:</strong> Which features are associated with higher innovation impact?</div>
                 <div><strong>Methods:</strong> Correlation analysis, LASSO, random forest, classification.</div>
                 <div><strong>Outcome:</strong> Evaluated the predictive value of novelty and network-based features.</div>
               </div>
-              <div class="project-links">
-                <a class="small-link" href="#" target="_blank" rel="noreferrer">View repository →</a>
-                <a class="small-link" href="#" target="_blank" rel="noreferrer">View report →</a>
+              <div class="project-actions">
+                <a class="text-link" href="#" target="_blank" rel="noreferrer">View repository →</a>
+                <a class="text-link" href="#" target="_blank" rel="noreferrer">View report →</a>
               </div>
             </div>
           </article>
 
           <article class="project-card">
-            <div class="project-image">Predictive + Prescriptive Analytics</div>
+            <div class="project-visual">
+              <div class="project-visual-title">Predictive + Prescriptive Analytics</div>
+              <div class="project-number">05</div>
+            </div>
             <div class="project-body">
               <h3>Predictive + Prescriptive Analytics Portfolio Project</h3>
-              <p>Explored why prediction accuracy alone is not enough by linking predictive models with knapsack optimisation, decision regret, and fairness-aware allocation.</p>
+              <p class="project-summary">
+                Linked prediction models with knapsack optimisation, decision regret, and fairness-aware allocation to show why accuracy alone is not enough.
+              </p>
               <div class="tags">
                 <span class="tag">Python</span>
                 <span class="tag">Optimisation</span>
                 <span class="tag">Decision Regret</span>
                 <span class="tag">Fairness</span>
               </div>
-              <div class="project-meta">
+              <div class="project-details">
                 <div><strong>Business problem:</strong> How do model errors affect downstream allocation decisions?</div>
                 <div><strong>Methods:</strong> Prediction models, knapsack optimisation, regret analysis, fairness-efficiency trade-off.</div>
                 <div><strong>Outcome:</strong> Demonstrated that the best predictive model is not always the best decision model.</div>
               </div>
-              <div class="project-links">
-                <a class="small-link" href="#" target="_blank" rel="noreferrer">View repository →</a>
-                <a class="small-link" href="#" target="_blank" rel="noreferrer">View presentation →</a>
+              <div class="project-actions">
+                <a class="text-link" href="#" target="_blank" rel="noreferrer">View repository →</a>
+                <a class="text-link" href="#" target="_blank" rel="noreferrer">View presentation →</a>
               </div>
             </div>
           </article>
@@ -729,64 +1029,92 @@
       </div>
     </section>
 
-    <section id="skills">
+    <section id="skills" class="section">
       <div class="container">
-        <div class="section-heading">
-          <h2>Technical toolkit</h2>
-          <p>Skills are presented through applied use cases rather than percentage bars.</p>
+        <div class="section-header">
+          <div>
+            <div class="section-kicker">Toolkit</div>
+            <h2 class="section-title">Skills by workflow.</h2>
+          </div>
+          <p class="section-copy">
+            Instead of using percentage skill bars, this portfolio shows skills through applied business analytics tasks and project evidence.
+          </p>
         </div>
 
         <div class="skills-grid">
           <div class="skill-card">
-            <h3>Python</h3>
-            <p>pandas, scikit-learn, classification, model evaluation, NLP, TF-IDF, sentiment analysis, and business interpretation.</p>
+            <div>
+              <h3>Python</h3>
+              <p>pandas, scikit-learn, classification, model evaluation, NLP, TF-IDF, sentiment analysis, and business interpretation.</p>
+            </div>
+            <span class="skill-pill">Predictive analytics</span>
           </div>
           <div class="skill-card">
-            <h3>R</h3>
-            <p>tidyverse, ggplot2, clustering, conjoint analysis, PCA, LASSO, random forest, reporting, and simulation.</p>
+            <div>
+              <h3>R</h3>
+              <p>tidyverse, ggplot2, clustering, conjoint analysis, PCA, LASSO, random forest, simulation, and report-ready outputs.</p>
+            </div>
+            <span class="skill-pill">Statistical modelling</span>
           </div>
           <div class="skill-card">
-            <h3>SQL</h3>
-            <p>Data querying, joins, aggregation, filtering, cleaning logic, and business question translation.</p>
+            <div>
+              <h3>SQL</h3>
+              <p>Data querying, joins, aggregation, filtering, cleaning logic, and translating business questions into data queries.</p>
+            </div>
+            <span class="skill-pill">Data extraction</span>
           </div>
           <div class="skill-card">
-            <h3>Power BI</h3>
-            <p>Dashboard design, KPIs, slicers, data modelling, storytelling, and executive-friendly visuals.</p>
+            <div>
+              <h3>Power BI</h3>
+              <p>Dashboard design, KPI cards, slicers, data storytelling, business reporting, and executive-friendly visualisation.</p>
+            </div>
+            <span class="skill-pill">Business intelligence</span>
           </div>
           <div class="skill-card">
-            <h3>Excel</h3>
-            <p>Data preparation, formula modelling, scenario testing, reporting, and analytical validation.</p>
+            <div>
+              <h3>Excel</h3>
+              <p>Data cleaning, formula modelling, scenario testing, validation checks, summary tables, and decision support models.</p>
+            </div>
+            <span class="skill-pill">Analysis support</span>
           </div>
           <div class="skill-card">
-            <h3>Business Analytics</h3>
-            <p>CRISP-DM, segmentation, prediction, optimisation, decision support, visual storytelling, and recommendations.</p>
+            <div>
+              <h3>Business Analytics</h3>
+              <p>CRISP-DM, segmentation, prediction, optimisation, decision support, visual storytelling, and recommendation writing.</p>
+            </div>
+            <span class="skill-pill">Decision focus</span>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="contact">
+    <section id="contact" class="section">
       <div class="container">
-        <div class="contact-card">
+        <div class="contact-panel">
           <div>
             <h2>Let’s connect.</h2>
-            <p>I am interested in Business Analyst, Data Analyst, BI Analyst, and Analytics Consultant opportunities where analytics is used to support practical decisions.</p>
+            <p>
+              I am interested in Business Analyst, Data Analyst, BI Analyst, and Analytics Consultant opportunities where analytics is used to support practical business decisions.
+            </p>
           </div>
-          <div class="contact-actions">
+          <div class="button-row contact-actions">
             <a class="btn btn-primary" href="mailto:aqeel.055@gmail.com">Email me</a>
-            <a class="btn" href="https://www.linkedin.com/in/YOUR-LINKEDIN" target="_blank" rel="noreferrer">LinkedIn</a>
-            <a class="btn" href="https://github.com/YOUR-GITHUB-USERNAME" target="_blank" rel="noreferrer">GitHub</a>
+            <a class="btn btn-soft" href="https://www.linkedin.com/in/shahzadaqeel/" target="_blank" rel="noreferrer">LinkedIn</a>
+            <a class="btn btn-soft" href="https://github.com/aqeel-shahzad" target="_blank" rel="noreferrer">GitHub</a>
           </div>
         </div>
       </div>
     </section>
   </main>
 
-  <footer>
+  <footer class="footer">
     <div class="container footer-inner">
       <span>© 2026 Aqeel Shahzad. Business Analytics Portfolio.</span>
       <span>Built with GitHub Pages.</span>
     </div>
   </footer>
+</body>
+</html>
+
 </body>
 </html>
