@@ -236,7 +236,7 @@
       display: grid;
       grid-template-columns: minmax(0,1.3fr) minmax(300px,0.7fr);
       gap: 40px;
-      align-items: stretch;
+      align-items: center;
     }
 
     .hero-main {
@@ -350,8 +350,9 @@
 
     /* ─── TOOL RIBBON ─── */
     .tool-ribbon {
-      margin-top: 22px;
-      padding: 20px 22px;
+      width: 100%;
+      margin-top: 24px;
+      padding: 22px 26px;
       border-radius: 22px;
       border: 1px solid var(--line);
       background: rgba(255,255,255,0.025);
@@ -380,7 +381,7 @@
     .tool-logos {
       display: flex;
       flex-wrap: wrap;
-      gap: 10px;
+      gap: 12px;
       align-items: stretch;
     }
 
@@ -421,6 +422,9 @@
 
     /* ─── HERO CARD (right panel) ─── */
     .hero-card {
+      height: fit-content;
+      min-height: auto;
+      align-self: center;
       border: 1px solid var(--line);
       border-radius: 32px;
       background: linear-gradient(180deg, rgba(255,255,255,0.055) 0%, rgba(255,255,255,0.02) 100%);
@@ -982,7 +986,6 @@
 
           <p class="hero-copy">
             I'm Aqeel Shahzad — an MSc Business Analytics student at Queen's University Belfast with nearly five years of commercial, client-facing, and stakeholder experience across the UK, UAE, and Pakistan. I combine international business experience with SQL, R, Power BI, and machine learning to turn business data into practical decisions.
-</p>
           </p>
 
           <div class="button-row">
