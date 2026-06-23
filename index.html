@@ -1039,6 +1039,222 @@
     height: 38px;
   }
 }
+
+/* ─── CERTIFICATIONS ─── */
+.certifications-section {
+  background: rgba(255,255,255,0.008);
+  border-bottom: 1px solid var(--line);
+}
+
+.cert-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+  margin-bottom: 22px;
+}
+
+.cert-card {
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.035), rgba(255,255,255,0.012)),
+    var(--surface);
+  padding: 24px;
+  min-height: 260px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.22s ease, border-color 0.22s ease, background 0.22s ease;
+}
+
+.cert-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at top right, rgba(58,180,245,0.13), transparent 42%);
+  opacity: 0;
+  transition: opacity 0.22s ease;
+  pointer-events: none;
+}
+
+.cert-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(58,180,245,0.25);
+  background: rgba(58,180,245,0.03);
+}
+
+.cert-card:hover::before {
+  opacity: 1;
+}
+
+.cert-meta {
+  position: relative;
+  z-index: 1;
+  color: var(--accent);
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+}
+
+.cert-card h3 {
+  position: relative;
+  z-index: 1;
+  font-size: 1.08rem;
+  line-height: 1.25;
+  letter-spacing: -0.04em;
+  font-weight: 850;
+  margin-bottom: 12px;
+}
+
+.cert-card p {
+  position: relative;
+  z-index: 1;
+  color: var(--muted);
+  font-size: 0.9rem;
+  line-height: 1.6;
+  margin-bottom: 18px;
+}
+
+.cert-tags {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin-top: auto;
+}
+
+.cert-tags span {
+  padding: 5px 9px;
+  border-radius: 999px;
+  background: rgba(58,180,245,0.08);
+  border: 1px solid rgba(58,180,245,0.16);
+  color: var(--text);
+  font-family: var(--mono);
+  font-size: 0.66rem;
+  font-weight: 700;
+}
+
+.learning-panel {
+  border: 1px solid rgba(124,90,240,0.18);
+  border-radius: var(--radius-lg);
+  background:
+    linear-gradient(135deg, rgba(124,90,240,0.1), rgba(58,180,245,0.06)),
+    var(--surface);
+  padding: 26px;
+}
+
+.learning-panel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 18px;
+  margin-bottom: 18px;
+}
+
+.learning-panel h3 {
+  font-size: 1.2rem;
+  letter-spacing: -0.045em;
+  font-weight: 850;
+  margin-bottom: 6px;
+}
+
+.learning-panel p {
+  color: var(--muted);
+  font-size: 0.92rem;
+  line-height: 1.65;
+  max-width: 760px;
+}
+
+.learning-count {
+  flex: 0 0 auto;
+  padding: 9px 12px;
+  border-radius: 999px;
+  background: rgba(34,197,94,0.1);
+  border: 1px solid rgba(34,197,94,0.2);
+  color: #bbf7d0;
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.learning-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.learning-pills span {
+  padding: 7px 11px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.045);
+  border: 1px solid rgba(255,255,255,0.08);
+  color: var(--muted);
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+}
+
+@media (max-width: 1100px) {
+  .cert-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 680px) {
+  .cert-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .cert-card {
+    min-height: auto;
+  }
+
+  .learning-panel-header {
+    flex-direction: column;
+  }
+
+  .learning-count {
+    width: fit-content;
+  }
+}
+```
+    </div>
+
+    <div class="learning-panel">
+      <div class="learning-panel-header">
+        <div>
+          <h3>Additional subjects studied on DataCamp</h3>
+          <p>
+            Supporting learning across programming, BI tools, visualisation, cloud concepts, governance and modern analytics workflows.
+          </p>
+        </div>
+        <div class="learning-count">DataCamp learning stack</div>
+      </div>
+
+      <div class="learning-pills">
+        <span>Python</span>
+        <span>Intermediate Python</span>
+        <span>R</span>
+        <span>SQL</span>
+        <span>Tableau</span>
+        <span>ggplot2</span>
+        <span>Power BI</span>
+        <span>Alteryx Data Preparation</span>
+        <span>Microsoft Azure</span>
+        <span>Cloud Computing</span>
+        <span>Prompt Engineering</span>
+        <span>Data Analytics Foundations</span>
+      </div>
+    </div>
+  </div>
+</section>
+```
     /* ─── SKILLS ─── */
     .skills-section {
       background: rgba(255,255,255,0.012);
@@ -1208,6 +1424,7 @@
         <a href="#about">About</a>
         <a href="#projects">Projects</a>
         <a href="#achievements">Achievements</a>
+        <a href="#certifications">Certifications</a>
         <a href="#skills">Skills</a>
         <a href="#contact" class="nav-cta">Get in touch</a>
       </nav>
@@ -1804,6 +2021,74 @@
   </div>
 </article>
       </section>
+
+<!-- ═══════════ CERTIFICATIONS ═══════════ -->
+<section id="certifications" class="section certifications-section">
+  <div class="container">
+    <div class="section-header">
+      <div>
+        <div class="section-kicker">// learning</div>
+        <h2 class="section-title">Certifications & continuous learning.</h2>
+      </div>
+      <p class="section-copy">
+        A focused learning track across SQL, business intelligence, analytics workflow tools, data privacy, cloud fundamentals and applied data skills.
+      </p>
+    </div>
+
+    <div class="cert-grid">
+
+      <article class="cert-card">
+        <div class="cert-meta">Analytics Workflow · Alteryx</div>
+        <h3>Alteryx Designer Core Certification</h3>
+        <p>
+          Certified in Alteryx Designer Core, covering data preparation, workflow building, transformation logic and repeatable analytics processes.
+        </p>
+        <div class="cert-tags">
+          <span>Alteryx</span>
+          <span>Data Prep</span>
+          <span>Workflow Automation</span>
+        </div>
+      </article>
+
+      <article class="cert-card">
+        <div class="cert-meta">SQL · UC Davis</div>
+        <h3>SQL for Data Science</h3>
+        <p>
+          Completed SQL training through the University of California, Davis, focused on querying, filtering, joining and analysing structured data.
+        </p>
+        <div class="cert-tags">
+          <span>SQL</span>
+          <span>Data Analysis</span>
+          <span>Relational Data</span>
+        </div>
+      </article>
+
+      <article class="cert-card">
+        <div class="cert-meta">Business Intelligence · Maven Analytics</div>
+        <h3>Microsoft Power BI Desktop for Business Intelligence</h3>
+        <p>
+          Completed Power BI training focused on data modelling, dashboard development, report design and business intelligence storytelling.
+        </p>
+        <div class="cert-tags">
+          <span>Power BI</span>
+          <span>Dashboards</span>
+          <span>Data Modelling</span>
+        </div>
+      </article>
+
+      <article class="cert-card">
+        <div class="cert-meta">Data Privacy · DataCamp · 2026</div>
+        <h3>GDPR & Data Privacy Fundamentals Certificate</h3>
+        <p>
+          Completed DataCamp training in GDPR and data privacy fundamentals, supporting responsible handling of personal, customer and organisational data in analytics work.
+        </p>
+        <div class="cert-tags">
+          <span>GDPR</span>
+          <span>Data Privacy</span>
+          <span>Responsible Analytics</span>
+        </div>
+      </article>
+       </section>
     <!-- ═══════════ SKILLS ═══════════ -->
     <section id="skills" class="section skills-section">
       <div class="container">
