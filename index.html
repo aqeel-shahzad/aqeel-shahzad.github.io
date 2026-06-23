@@ -491,6 +491,121 @@
     .profile-top h2 { font-size: 1.08rem; letter-spacing: -0.03em; font-weight: 800; margin-bottom: 2px; }
     .profile-top p { color: var(--muted); font-size: 0.86rem; }
 
+    .profile-top-enhanced {
+      align-items: center;
+    }
+
+    .avatar-visual {
+      width: 62px;
+      height: 62px;
+      border-radius: 22px;
+      display: grid;
+      place-items: center;
+      background:
+        radial-gradient(circle at 35% 25%, rgba(255,255,255,0.28), transparent 28%),
+        linear-gradient(135deg, rgba(58,180,245,0.95), rgba(124,90,240,0.95));
+      border: 1px solid rgba(255,255,255,0.14);
+      box-shadow: 0 12px 30px rgba(58,180,245,0.18);
+      flex-shrink: 0;
+    }
+
+    .avatar-face {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      position: relative;
+      background: rgba(255,255,255,0.92);
+    }
+
+    .avatar-face::before {
+      content: '';
+      position: absolute;
+      left: 50%;
+      top: 8px;
+      transform: translateX(-50%);
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #0b1120;
+    }
+
+    .avatar-face::after {
+      content: '';
+      position: absolute;
+      left: 50%;
+      bottom: 7px;
+      transform: translateX(-50%);
+      width: 22px;
+      height: 11px;
+      border-radius: 14px 14px 6px 6px;
+      background: #0b1120;
+    }
+
+    .profile-note {
+      padding: 18px;
+      border-radius: 20px;
+      border: 1px solid rgba(58,180,245,0.14);
+      background: rgba(58,180,245,0.055);
+      margin-bottom: 16px;
+    }
+
+    .profile-note-kicker {
+      display: block;
+      color: var(--accent);
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .profile-note p {
+      color: var(--muted);
+      font-size: 0.88rem;
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    .profile-highlights {
+      display: grid;
+      gap: 10px;
+    }
+
+    .profile-highlight {
+      padding: 15px;
+      border-radius: 18px;
+      border: 1px solid rgba(255,255,255,0.065);
+      background: rgba(255,255,255,0.03);
+      transition: border-color 0.2s, background 0.2s;
+    }
+
+    .profile-highlight:hover {
+      border-color: rgba(58,180,245,0.18);
+      background: rgba(58,180,245,0.04);
+    }
+
+    .profile-highlight span {
+      display: inline-flex;
+      color: var(--accent);
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      font-weight: 800;
+      margin-bottom: 7px;
+    }
+
+    .profile-highlight strong {
+      display: block;
+      font-size: 0.9rem;
+      margin-bottom: 4px;
+    }
+
+    .profile-highlight p {
+      color: var(--muted);
+      font-size: 0.82rem;
+      line-height: 1.5;
+      margin: 0;
+    }
+
     .workflow-list { display: grid; gap: 10px; }
 
     .workflow-item {
@@ -1539,7 +1654,7 @@
           <h1>Commercial experience, now powered by <span class="gradient-text">analytics.</span></h1>
 
           <p class="hero-copy">
-            I'm Aqeel Shahzad, an MSc Business Analytics student at Queen's University Belfast with nearly five years of commercial, client-facing, and stakeholder experience across the UK, UAE, Saudi Arabia and Pakistan. I combine that international business background with SQL, R, Power BI, and machine learning to turn business data into practical decisions.
+            I'm Aqeel Shahzad, an MSc Business Analytics student at Queen's University Belfast with nearly five years of commercial, client-facing and stakeholder experience across the UK, UAE, Saudi Arabia and Pakistan. I now use SQL, Power BI, R, Python and machine learning to turn business data into practical decisions.
           </p>
 
           <div class="button-row">
@@ -1670,47 +1785,45 @@
         <!-- Right panel -->
         <aside class="hero-card" aria-label="Portfolio profile card">
           <div class="profile-panel">
-            <div class="profile-top">
-              <div class="avatar">AS</div>
+
+            <div class="profile-top profile-top-enhanced">
+              <div class="avatar-visual" aria-hidden="true">
+                <div class="avatar-face"></div>
+              </div>
+
               <div>
-              <h2>Aqeel Shahzad</h2>
-             <p>Commercial Analytics · BI · Business Impact</p>
+                <h2>Aqeel Shahzad</h2>
+                <p>Commercial background. Analytics direction.</p>
               </div>
             </div>
 
-<div class="workflow-list">
-  <div class="workflow-item">
-    <div class="workflow-number">01</div>
-    <div>
-      <strong>Business context</strong>
-      <span>Understand the customer, market, stakeholder, and organisational problem before choosing the analytical approach.</span>
-    </div>
-  </div>
+            <div class="profile-note">
+              <span class="profile-note-kicker">Current focus</span>
+              <p>
+                Building a portfolio across SQL, Power BI, Python, R and optimisation, with a focus on turning business problems into clear analytical decisions.
+              </p>
+            </div>
 
-  <div class="workflow-item">
-    <div class="workflow-number">02</div>
-    <div>
-      <strong>Data preparation</strong>
-      <span>Clean, validate, transform, and structure data so analysis is reliable, transparent, and decision-ready.</span>
-    </div>
-  </div>
+            <div class="profile-highlights">
+              <div class="profile-highlight">
+                <span>01</span>
+                <strong>Business context first</strong>
+                <p>I start with the stakeholder problem before choosing the tool or model.</p>
+              </div>
 
-  <div class="workflow-item">
-    <div class="workflow-number">03</div>
-    <div>
-      <strong>Analytical modelling</strong>
-      <span>Use BI, modelling, forecasting, and resource-allocation methods to solve business problems.</span>
-    </div>
-  </div>
+              <div class="profile-highlight">
+                <span>02</span>
+                <strong>Data to decisions</strong>
+                <p>I use dashboards, modelling and analysis to support practical recommendations.</p>
+              </div>
 
-  <div class="workflow-item">
-    <div class="workflow-number">04</div>
-    <div>
-      <strong>Business impact</strong>
-      <span>Use analytics to support organisational goals, improve performance, and turn insight into action.</span>
+              <div class="profile-highlight">
+                <span>03</span>
+                <strong>Applied portfolio</strong>
+                <p>Projects cover SQL warehousing, BI reporting, machine learning, marketing analytics and optimisation.</p>
               </div>
             </div>
-          </div>
+
           </div>
         </aside>
 
@@ -1743,8 +1856,8 @@
 
             <div class="about-stats">
               <div class="about-stat">
-                <span class="about-stat-num">14</span>
-                <span class="about-stat-label">Analytics certifications</span>
+                <span class="about-stat-num">14+</span>
+                <span class="about-stat-label">Completed analytics, BI and data courses</span>
               </div>
               <div class="about-stat">
                 <span class="about-stat-num">3</span>
