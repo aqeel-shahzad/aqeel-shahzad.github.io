@@ -1040,9 +1040,11 @@
   }
 }
 
+```css
 /* ─── CERTIFICATIONS ─── */
 .certifications-section {
-  background: rgba(255,255,255,0.008);
+  background: rgba(255,255,255,0.012);
+  border-top: 1px solid var(--line);
   border-bottom: 1px solid var(--line);
 }
 
@@ -1050,77 +1052,55 @@
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 18px;
-  margin-bottom: 22px;
 }
 
 .cert-card {
-  border: 1px solid var(--line);
-  border-radius: var(--radius-lg);
-  background:
-    linear-gradient(180deg, rgba(255,255,255,0.035), rgba(255,255,255,0.012)),
-    var(--surface);
-  padding: 24px;
-  min-height: 260px;
   display: flex;
   flex-direction: column;
-  position: relative;
-  overflow: hidden;
+  min-height: 336px;
+  padding: 24px;
+  border-radius: 26px;
+  border: 1px solid var(--line);
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.035), rgba(255,255,255,0.015)),
+    var(--surface);
+  box-shadow: var(--shadow-sm);
   transition: transform 0.22s ease, border-color 0.22s ease, background 0.22s ease;
-}
-
-.cert-card::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(circle at top right, rgba(58,180,245,0.13), transparent 42%);
-  opacity: 0;
-  transition: opacity 0.22s ease;
-  pointer-events: none;
 }
 
 .cert-card:hover {
   transform: translateY(-4px);
-  border-color: rgba(58,180,245,0.25);
-  background: rgba(58,180,245,0.03);
-}
-
-.cert-card:hover::before {
-  opacity: 1;
+  border-color: rgba(58,180,245,0.24);
+  background:
+    linear-gradient(180deg, rgba(58,180,245,0.045), rgba(255,255,255,0.015)),
+    var(--surface);
 }
 
 .cert-meta {
-  position: relative;
-  z-index: 1;
   color: var(--accent);
   font-family: var(--mono);
-  font-size: 0.68rem;
-  letter-spacing: 0.13em;
+  font-size: 0.7rem;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
-  margin-bottom: 14px;
+  margin-bottom: 18px;
 }
 
 .cert-card h3 {
-  position: relative;
-  z-index: 1;
-  font-size: 1.08rem;
+  font-size: 1rem;
   line-height: 1.25;
   letter-spacing: -0.04em;
   font-weight: 850;
-  margin-bottom: 12px;
+  margin-bottom: 14px;
 }
 
 .cert-card p {
-  position: relative;
-  z-index: 1;
   color: var(--muted);
   font-size: 0.9rem;
-  line-height: 1.6;
+  line-height: 1.65;
   margin-bottom: 18px;
 }
 
 .cert-tags {
-  position: relative;
-  z-index: 1;
   display: flex;
   flex-wrap: wrap;
   gap: 7px;
@@ -1128,76 +1108,63 @@
 }
 
 .cert-tags span {
-  padding: 5px 9px;
+  padding: 6px 10px;
   border-radius: 999px;
-  background: rgba(58,180,245,0.08);
-  border: 1px solid rgba(58,180,245,0.16);
-  color: var(--text);
+  background: rgba(58,180,245,0.1);
+  border: 1px solid rgba(58,180,245,0.18);
+  color: #dbeafe;
   font-family: var(--mono);
-  font-size: 0.66rem;
-  font-weight: 700;
+  font-size: 0.68rem;
+  font-weight: 800;
 }
 
-.learning-panel {
-  border: 1px solid rgba(124,90,240,0.18);
-  border-radius: var(--radius-lg);
-  background:
-    linear-gradient(135deg, rgba(124,90,240,0.1), rgba(58,180,245,0.06)),
-    var(--surface);
-  padding: 26px;
-}
-
-.learning-panel-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: 18px;
-  margin-bottom: 18px;
-}
-
-.learning-panel h3 {
-  font-size: 1.2rem;
-  letter-spacing: -0.045em;
-  font-weight: 850;
-  margin-bottom: 6px;
-}
-
-.learning-panel p {
-  color: var(--muted);
-  font-size: 0.92rem;
-  line-height: 1.65;
-  max-width: 760px;
-}
-
-.learning-count {
-  flex: 0 0 auto;
-  padding: 9px 12px;
-  border-radius: 999px;
-  background: rgba(34,197,94,0.1);
-  border: 1px solid rgba(34,197,94,0.2);
-  color: #bbf7d0;
-  font-family: var(--mono);
-  font-size: 0.7rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  font-weight: 700;
-}
-
-.learning-pills {
-  display: flex;
-  flex-wrap: wrap;
+.cert-link {
+  display: inline-flex;
+  width: fit-content;
+  align-items: center;
   gap: 8px;
+  margin-top: 22px;
+  color: var(--accent);
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-decoration: none;
 }
 
-.learning-pills span {
-  padding: 7px 11px;
-  border-radius: 999px;
-  background: rgba(255,255,255,0.045);
-  border: 1px solid rgba(255,255,255,0.08);
-  color: var(--muted);
+.cert-link:hover {
+  text-decoration: underline;
+}
+
+.cert-extra {
+  margin-top: 18px;
+  padding: 24px 26px;
+  border-radius: 26px;
+  border: 1px solid var(--line);
+  background:
+    linear-gradient(135deg, rgba(58,180,245,0.07), rgba(124,90,240,0.06)),
+    var(--surface);
+}
+
+.cert-extra-kicker {
+  color: var(--accent);
   font-family: var(--mono);
   font-size: 0.72rem;
-  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.cert-extra h3 {
+  font-size: 1.05rem;
+  letter-spacing: -0.035em;
+  margin-bottom: 8px;
+}
+
+.cert-extra p {
+  color: var(--muted);
+  line-height: 1.8;
+  margin: 0;
 }
 
 @media (max-width: 1100px) {
@@ -1215,46 +1182,11 @@
     min-height: auto;
   }
 
-  .learning-panel-header {
-    flex-direction: column;
-  }
-
-  .learning-count {
-    width: fit-content;
+  .cert-extra {
+    padding: 22px;
   }
 }
-```
-    </div>
 
-    <div class="learning-panel">
-      <div class="learning-panel-header">
-        <div>
-          <h3>Additional subjects studied on DataCamp</h3>
-          <p>
-            Supporting learning across programming, BI tools, visualisation, cloud concepts, governance and modern analytics workflows.
-          </p>
-        </div>
-        <div class="learning-count">DataCamp learning stack</div>
-      </div>
-
-      <div class="learning-pills">
-        <span>Python</span>
-        <span>Intermediate Python</span>
-        <span>R</span>
-        <span>SQL</span>
-        <span>Tableau</span>
-        <span>ggplot2</span>
-        <span>Power BI</span>
-        <span>Alteryx Data Preparation</span>
-        <span>Microsoft Azure</span>
-        <span>Cloud Computing</span>
-        <span>Prompt Engineering</span>
-        <span>Data Analytics Foundations</span>
-      </div>
-    </div>
-  </div>
-</section>
-```
     /* ─── SKILLS ─── */
     .skills-section {
       background: rgba(255,255,255,0.012);
@@ -2022,6 +1954,7 @@
 </article>
       </section>
 
+```html
 <!-- ═══════════ CERTIFICATIONS ═══════════ -->
 <section id="certifications" class="section certifications-section">
   <div class="container">
@@ -2043,11 +1976,16 @@
         <p>
           Certified in Alteryx Designer Core, covering data preparation, workflow building, transformation logic and repeatable analytics processes.
         </p>
+
         <div class="cert-tags">
           <span>Alteryx</span>
           <span>Data Prep</span>
           <span>Workflow Automation</span>
         </div>
+
+        <a class="cert-link" href="https://www.credly.com/badges/39194904-b045-418c-b6f0-b3defc69415b/public_url" target="_blank" rel="noreferrer">
+          View certification →
+        </a>
       </article>
 
       <article class="cert-card">
@@ -2056,11 +1994,16 @@
         <p>
           Completed SQL training through the University of California, Davis, focused on querying, filtering, joining and analysing structured data.
         </p>
+
         <div class="cert-tags">
           <span>SQL</span>
           <span>Data Analysis</span>
           <span>Relational Data</span>
         </div>
+
+        <a class="cert-link" href="https://www.coursera.org/account/accomplishments/verify/HCF6CHN49O3A" target="_blank" rel="noreferrer">
+          View certification →
+        </a>
       </article>
 
       <article class="cert-card">
@@ -2069,26 +2012,52 @@
         <p>
           Completed Power BI training focused on data modelling, dashboard development, report design and business intelligence storytelling.
         </p>
+
         <div class="cert-tags">
           <span>Power BI</span>
           <span>Dashboards</span>
           <span>Data Modelling</span>
         </div>
+
+        <a class="cert-link" href="https://www.udemy.com/certificate/UC-304ee352-60bc-4023-9777-2611abbe973f/" target="_blank" rel="noreferrer">
+          View certification →
+        </a>
       </article>
 
       <article class="cert-card">
-        <div class="cert-meta">Data Privacy · DataCamp · 2026</div>
+        <div class="cert-meta">Data Privacy · DataCamp</div>
         <h3>GDPR & Data Privacy Fundamentals Certificate</h3>
         <p>
           Completed DataCamp training in GDPR and data privacy fundamentals, supporting responsible handling of personal, customer and organisational data in analytics work.
         </p>
+
         <div class="cert-tags">
           <span>GDPR</span>
           <span>Data Privacy</span>
           <span>Responsible Analytics</span>
         </div>
+
+        <a class="cert-link" href="https://www.datacamp.com/skill-verification/GDP0012154468604" target="_blank" rel="noreferrer">
+          View certification →
+        </a>
       </article>
-       </section>
+
+    </div>
+
+    <div class="cert-extra">
+      <div>
+        <div class="cert-extra-kicker">Additional completed learning</div>
+        <h3>Additional subjects studied on DataCamp</h3>
+        <p>
+          Python · Intermediate Python · R · SQL · Tableau · ggplot2 · Power BI · Alteryx Data Preparation · Introduction to Alteryx · Microsoft Azure · Azure Architecture & Services · Azure Management & Governance · Cloud Computing · GDPR in Practice · Prompt Engineering
+        </p>
+      </div>
+    </div>
+
+  </div>
+</section>
+```
+
     <!-- ═══════════ SKILLS ═══════════ -->
     <section id="skills" class="section skills-section">
       <div class="container">
