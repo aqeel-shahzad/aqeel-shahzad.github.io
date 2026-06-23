@@ -969,6 +969,7 @@
       <nav class="nav-links" aria-label="Main navigation">
         <a href="#about">About</a>
         <a href="#projects">Projects</a>
+        <a href="#achievements">Achievements</a>
         <a href="#skills">Skills</a>
         <a href="#contact" class="nav-cta">Get in touch</a>
       </nav>
@@ -1446,6 +1447,368 @@
     </div>
       </div>
     </section>
+
+```css
+/* ─── ACHIEVEMENTS ─── */
+.achievements-section {
+  background: rgba(255,255,255,0.012);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.achievement-layout {
+  display: grid;
+  grid-template-columns: 0.95fr 1.05fr;
+  gap: 20px;
+  align-items: stretch;
+}
+
+.achievement-hero {
+  border: 1px solid rgba(58,180,245,0.18);
+  border-radius: var(--radius-lg);
+  background:
+    linear-gradient(135deg, rgba(58,180,245,0.12), rgba(124,90,240,0.12)),
+    var(--surface);
+  padding: 30px;
+  position: relative;
+  overflow: hidden;
+  min-height: 100%;
+  box-shadow: var(--shadow-sm);
+}
+
+.achievement-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(58,180,245,0.055) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(58,180,245,0.055) 1px, transparent 1px);
+  background-size: 34px 34px;
+  mask-image: radial-gradient(ellipse at 20% 20%, rgba(0,0,0,0.7), transparent 70%);
+  pointer-events: none;
+}
+
+.achievement-hero::after {
+  content: '';
+  position: absolute;
+  right: -70px;
+  bottom: -70px;
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(124,90,240,0.22), transparent 65%);
+  pointer-events: none;
+}
+
+.achievement-badge {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  width: fit-content;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 12px;
+  border-radius: 999px;
+  background: rgba(34,197,94,0.1);
+  border: 1px solid rgba(34,197,94,0.22);
+  color: #bbf7d0;
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 22px;
+}
+
+.achievement-badge-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--accent-3);
+  box-shadow: 0 0 0 4px rgba(34,197,94,0.14);
+}
+
+.achievement-hero h3 {
+  position: relative;
+  z-index: 1;
+  max-width: 540px;
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
+  line-height: 1;
+  letter-spacing: -0.06em;
+  font-weight: 900;
+  margin-bottom: 16px;
+}
+
+.achievement-hero p {
+  position: relative;
+  z-index: 1;
+  color: var(--muted);
+  max-width: 560px;
+  font-size: 0.98rem;
+  line-height: 1.7;
+  margin-bottom: 22px;
+}
+
+.achievement-stats {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-top: 24px;
+}
+
+.achievement-stat {
+  padding: 15px 14px;
+  border-radius: 18px;
+  border: 1px solid rgba(255,255,255,0.08);
+  background: rgba(255,255,255,0.04);
+}
+
+.achievement-stat strong {
+  display: block;
+  font-size: 1.25rem;
+  line-height: 1;
+  letter-spacing: -0.05em;
+  margin-bottom: 6px;
+}
+
+.achievement-stat span {
+  display: block;
+  color: var(--muted);
+  font-size: 0.78rem;
+  line-height: 1.35;
+}
+
+.achievement-timeline {
+  display: grid;
+  gap: 14px;
+}
+
+.achievement-card {
+  display: grid;
+  grid-template-columns: 42px 1fr;
+  gap: 14px;
+  padding: 20px;
+  border-radius: 22px;
+  border: 1px solid var(--line);
+  background: var(--surface);
+  transition: transform 0.22s ease, border-color 0.22s ease, background 0.22s ease;
+}
+
+.achievement-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(58,180,245,0.24);
+  background: rgba(58,180,245,0.035);
+}
+
+.achievement-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 14px;
+  display: grid;
+  place-items: center;
+  background: rgba(58,180,245,0.1);
+  border: 1px solid rgba(58,180,245,0.18);
+  color: var(--accent);
+  font-weight: 900;
+  font-family: var(--mono);
+  font-size: 0.85rem;
+}
+
+.achievement-content {
+  min-width: 0;
+}
+
+.achievement-meta {
+  color: var(--accent);
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 5px;
+}
+
+.achievement-card h3 {
+  font-size: 1rem;
+  line-height: 1.25;
+  letter-spacing: -0.035em;
+  font-weight: 800;
+  margin-bottom: 6px;
+}
+
+.achievement-card p {
+  color: var(--muted);
+  font-size: 0.9rem;
+  line-height: 1.6;
+  margin-bottom: 12px;
+}
+
+.achievement-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.achievement-tags span {
+  padding: 4px 9px;
+  border-radius: 999px;
+  background: rgba(124,90,240,0.1);
+  border: 1px solid rgba(124,90,240,0.18);
+  color: #ddd6fe;
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  font-weight: 700;
+}
+
+@media (max-width: 1000px) {
+  .achievement-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .achievement-stats {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 680px) {
+  .achievement-hero {
+    padding: 24px;
+  }
+
+  .achievement-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .achievement-card {
+    grid-template-columns: 1fr;
+  }
+
+  .achievement-icon {
+    width: 38px;
+    height: 38px;
+  }
+}
+```
+```html
+<!-- ═══════════ ACHIEVEMENTS ═══════════ -->
+<section id="achievements" class="section achievements-section">
+  <div class="container">
+    <div class="section-header">
+      <div>
+        <div class="section-kicker">// recognition</div>
+        <h2 class="section-title">Achievements & current work.</h2>
+      </div>
+      <p class="section-copy">
+        A snapshot of selected competitions, university recognition, and current analytics work beyond the core portfolio projects.
+      </p>
+    </div>
+
+    <div class="achievement-layout">
+
+      <!-- Current status feature panel -->
+      <article class="achievement-hero">
+        <div class="achievement-badge">
+          <span class="achievement-badge-dot"></span>
+          Current status
+        </div>
+
+        <h3>Selected to work with MindWise on a dissertation analytics project.</h3>
+
+        <p>
+          Currently one of five students selected to work with MindWise on a dissertation project exploring decision-focused analytics, capacity allocation, and fairness-aware prioritisation. The work focuses on how analytics can support better decisions when time, staff, or resources are limited.
+        </p>
+
+        <div class="achievement-stats">
+          <div class="achievement-stat">
+            <strong>1 of 5</strong>
+            <span>Students selected for MindWise project work</span>
+          </div>
+
+          <div class="achievement-stat">
+            <strong>2026</strong>
+            <span>Applied dissertation project timeline</span>
+          </div>
+
+          <div class="achievement-stat">
+            <strong>Impact</strong>
+            <span>Decision-focused analytics and fairness</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- Achievement timeline/cards -->
+      <div class="achievement-timeline">
+
+        <article class="achievement-card">
+          <div class="achievement-icon">01</div>
+          <div class="achievement-content">
+            <div class="achievement-meta">Winner · 2026</div>
+            <h3>Queen’s Business School Data for Good Hackathon</h3>
+            <p>
+              Won first place in a healthcare analytics challenge focused on GP practice pressure across Northern Ireland, combining data analysis with practical recommendations for targeted support.
+            </p>
+            <div class="achievement-tags">
+              <span>Healthcare Analytics</span>
+              <span>Teamwork</span>
+              <span>Data for Good</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="achievement-card">
+          <div class="achievement-icon">02</div>
+          <div class="achievement-content">
+            <div class="achievement-meta">Competition · 2026</div>
+            <h3>EY Student Competition Participant</h3>
+            <p>
+              Took part in an EY student competition involving business problem-solving, teamwork, analysis, and presenting recommendations under time pressure.
+            </p>
+            <div class="achievement-tags">
+              <span>Consulting</span>
+              <span>Problem Solving</span>
+              <span>Presentation</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="achievement-card">
+          <div class="achievement-icon">03</div>
+          <div class="achievement-content">
+            <div class="achievement-meta">Winner · Team Leader</div>
+            <h3>Unilever Marketing Challenge</h3>
+            <p>
+              Led a team in a marketing challenge and achieved first place, applying commercial thinking, teamwork, and structured recommendations to a business case.
+            </p>
+            <div class="achievement-tags">
+              <span>Leadership</span>
+              <span>Marketing Strategy</span>
+              <span>Commercial Thinking</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="achievement-card">
+          <div class="achievement-icon">04</div>
+          <div class="achievement-content">
+            <div class="achievement-meta">Current focus</div>
+            <h3>Building an analytics portfolio across SQL, Power BI, R and Python</h3>
+            <p>
+              Developing applied projects that demonstrate the full analytics workflow, from data preparation and modelling to dashboards, reporting, optimisation, and business recommendations.
+            </p>
+            <div class="achievement-tags">
+              <span>SQL</span>
+              <span>Power BI</span>
+              <span>Python</span>
+              <span>R</span>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </div>
+</section>
+```
     <!-- ═══════════ SKILLS ═══════════ -->
     <section id="skills" class="section skills-section">
       <div class="container">
