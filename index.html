@@ -1168,73 +1168,250 @@
   }
 }
 
-    /* ─── SKILLS ─── */
-    .skills-section {
-      background: rgba(255,255,255,0.012);
-      border-top: 1px solid var(--line);
-      border-bottom: 1px solid var(--line);
-    }
+    ```css
+/* ─── ANALYTICS OPERATING SYSTEM ─── */
+.skills-section {
+  position: relative;
+  overflow: hidden;
+}
 
-    .skills-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0,1fr));
-      gap: 16px;
-    }
+.skills-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 12% 20%, rgba(58,180,245,0.10), transparent 32%),
+    radial-gradient(circle at 88% 12%, rgba(124,90,240,0.12), transparent 34%);
+  pointer-events: none;
+}
 
-    .skill-card {
-      border: 1px solid var(--line);
-      border-radius: 22px;
-      background: var(--surface);
-      padding: 24px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      gap: 14px;
-      transition: border-color 0.2s, transform 0.2s;
-    }
+.ops-panel {
+  position: relative;
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 22px;
+  align-items: stretch;
+}
 
-    .skill-card:hover {
-      border-color: rgba(58,180,245,0.22);
-      transform: translateY(-3px);
-    }
+.ops-hero {
+  position: relative;
+  overflow: hidden;
+  padding: 32px;
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(58,180,245,0.18);
+  background:
+    linear-gradient(135deg, rgba(58,180,245,0.10), rgba(124,90,240,0.10)),
+    var(--surface);
+  box-shadow: var(--shadow-sm);
+}
 
-    .skill-icon {
-      width: 40px;
-      height: 40px;
-      border-radius: 12px;
-      display: grid;
-      place-items: center;
-      background: rgba(58,180,245,0.1);
-      border: 1px solid rgba(58,180,245,0.15);
-      margin-bottom: 4px;
-    }
+.ops-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(58,180,245,0.055) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(58,180,245,0.055) 1px, transparent 1px);
+  background-size: 34px 34px;
+  mask-image: radial-gradient(ellipse at 25% 15%, rgba(0,0,0,0.8), transparent 72%);
+  pointer-events: none;
+}
 
-    .skill-card h3 {
-      font-size: 1rem;
-      letter-spacing: -0.025em;
-      font-weight: 800;
-      margin-bottom: 6px;
-    }
+.ops-hero h3,
+.ops-hero p,
+.ops-flow,
+.ops-stack {
+  position: relative;
+  z-index: 1;
+}
 
-    .skill-card p {
-      color: var(--muted);
-      font-size: 0.9rem;
-      line-height: 1.6;
-    }
+.ops-hero h3 {
+  font-size: clamp(1.8rem, 3vw, 2.7rem);
+  line-height: 1;
+  letter-spacing: -0.06em;
+  font-weight: 900;
+  margin-bottom: 16px;
+}
 
-    .skill-pill {
-      display: inline-block;
-      width: fit-content;
-      padding: 5px 10px;
-      border-radius: 999px;
-      background: rgba(124,90,240,0.1);
-      border: 1px solid rgba(124,90,240,0.2);
-      color: #ddd6fe;
-      font-size: 0.74rem;
-      font-weight: 700;
-      font-family: var(--mono);
-    }
+.ops-hero p {
+  color: var(--muted);
+  max-width: 560px;
+  line-height: 1.7;
+  font-size: 0.98rem;
+}
 
+.ops-flow {
+  display: grid;
+  gap: 10px;
+  margin-top: 28px;
+}
+
+.ops-flow-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.ops-flow-step {
+  flex: 1;
+  min-height: 58px;
+  padding: 14px;
+  border-radius: 18px;
+  border: 1px solid rgba(255,255,255,0.08);
+  background: rgba(255,255,255,0.04);
+}
+
+.ops-flow-step strong {
+  display: block;
+  color: var(--text);
+  font-size: 0.86rem;
+  margin-bottom: 4px;
+}
+
+.ops-flow-step span {
+  color: var(--muted);
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.ops-arrow {
+  color: var(--accent);
+  font-family: var(--mono);
+  font-weight: 900;
+}
+
+.ops-stack {
+  margin-top: 24px;
+  padding: 16px;
+  border-radius: 20px;
+  border: 1px solid rgba(58,180,245,0.16);
+  background: rgba(3,7,18,0.34);
+}
+
+.ops-stack-kicker {
+  color: var(--accent);
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.ops-stack p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.88rem;
+  line-height: 1.7;
+}
+
+.ops-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+}
+
+.ops-card {
+  position: relative;
+  overflow: hidden;
+  padding: 22px;
+  border-radius: 24px;
+  border: 1px solid var(--line);
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.035), rgba(255,255,255,0.012)),
+    var(--surface);
+  transition: transform 0.22s ease, border-color 0.22s ease, background 0.22s ease;
+}
+
+.ops-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(58,180,245,0.26);
+  background:
+    linear-gradient(180deg, rgba(58,180,245,0.045), rgba(255,255,255,0.012)),
+    var(--surface);
+}
+
+.ops-number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 14px;
+  background: rgba(58,180,245,0.10);
+  border: 1px solid rgba(58,180,245,0.18);
+  color: var(--accent);
+  font-family: var(--mono);
+  font-size: 0.8rem;
+  font-weight: 900;
+  margin-bottom: 16px;
+}
+
+.ops-card h3 {
+  font-size: 1rem;
+  line-height: 1.25;
+  letter-spacing: -0.035em;
+  font-weight: 850;
+  margin-bottom: 9px;
+}
+
+.ops-card p {
+  color: var(--muted);
+  font-size: 0.88rem;
+  line-height: 1.6;
+  margin-bottom: 14px;
+}
+
+.ops-tools {
+  color: #dbeafe;
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  line-height: 1.65;
+}
+
+.ops-evidence {
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px solid rgba(255,255,255,0.08);
+  color: var(--muted);
+  font-size: 0.78rem;
+  line-height: 1.5;
+}
+
+.ops-evidence strong {
+  color: var(--accent);
+}
+
+@media (max-width: 1050px) {
+  .ops-panel {
+    grid-template-columns: 1fr;
+  }
+
+  .ops-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 720px) {
+  .ops-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .ops-hero {
+    padding: 24px;
+  }
+
+  .ops-flow-row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .ops-arrow {
+    text-align: center;
+    transform: rotate(90deg);
+  }
+}
     /* ─── CONTACT ─── */
     .contact-panel {
       display: grid;
@@ -2012,114 +2189,152 @@
 
   </div>
 </section>
-    <!-- ═══════════ SKILLS ═══════════ -->
-    <section id="skills" class="section skills-section">
-      <div class="container">
-        <div class="section-header">
-          <div>
-            <div class="section-kicker">// toolkit</div>
-            <h2 class="section-title">Skills by workflow.</h2>
+  ```html
+<!-- ═══════════ ANALYTICS OPERATING SYSTEM ═══════════ -->
+<section id="skills" class="section skills-section">
+  <div class="container">
+    <div class="section-header">
+      <div>
+        <div class="section-kicker">// toolkit</div>
+        <h2 class="section-title">Analytics operating system.</h2>
+      </div>
+      <p class="section-copy">
+        A capability-based view of how I use analytics tools across the full workflow, from raw data to business decisions.
+      </p>
+    </div>
+
+    <div class="ops-panel">
+
+      <article class="ops-hero">
+        <h3>Raw data to decision-ready insight.</h3>
+        <p>
+          My toolkit is built around the analytics workflow rather than isolated software skills. I use SQL, Power BI, Python, R, Excel and Alteryx to clean data, build models, create dashboards and turn analysis into practical business recommendations.
+        </p>
+
+        <div class="ops-flow">
+          <div class="ops-flow-row">
+            <div class="ops-flow-step">
+              <strong>Data preparation</strong>
+              <span>Clean · join · validate</span>
+            </div>
+            <div class="ops-arrow">→</div>
+            <div class="ops-flow-step">
+              <strong>Analysis</strong>
+              <span>Explore · model · test</span>
+            </div>
           </div>
-          <p class="section-copy">
-            Instead of percentage bars, these skills are shown through the analytics tasks and project evidence they come from.
+
+          <div class="ops-flow-row">
+            <div class="ops-flow-step">
+              <strong>Reporting</strong>
+              <span>KPIs · dashboards · story</span>
+            </div>
+            <div class="ops-arrow">→</div>
+            <div class="ops-flow-step">
+              <strong>Decision support</strong>
+              <span>Recommend · prioritise · optimise</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="ops-stack">
+          <div class="ops-stack-kicker">Core stack</div>
+          <p>
+            SQL Server · T-SQL · Power BI · DAX · Python · R · Excel · Alteryx · Tableau · scikit-learn · PuLP · ggplot2
           </p>
         </div>
+      </article>
 
-        <div class="skills-grid">
+      <div class="ops-grid">
 
-          <div class="skill-card">
-            <div>
-              <div class="skill-icon">
-                <svg width="20" height="20" viewBox="0 0 256 255" xmlns="http://www.w3.org/2000/svg">
-                  <defs><linearGradient id="sk-py1" x1="12%" y1="12%" x2="88%" y2="88%"><stop offset="0%" stop-color="#387EB8"/><stop offset="100%" stop-color="#366994"/></linearGradient><linearGradient id="sk-py2" x1="12%" y1="12%" x2="88%" y2="88%"><stop offset="0%" stop-color="#FFE052"/><stop offset="100%" stop-color="#FFC331"/></linearGradient></defs>
-                  <path fill="url(#sk-py1)" d="M126.9 0C62.4 0 66.2 27 66.2 27l.1 28h61.8v8.4H41.6S0 58.5 0 123.8s37.7 63.2 37.7 63.2h22.6v-30.4s-1.2-37.7 37.1-37.7h63.9s35.8.6 35.8-34.6V34.3S203.3 0 126.9 0zM92 19.5c6.5 0 11.7 5.2 11.7 11.7S98.5 43 92 43s-11.7-5.2-11.7-11.7S85.5 19.5 92 19.5z"/>
-                  <path fill="url(#sk-py2)" d="M128.9 254.6c64.5 0 60.7-27 60.7-27l-.1-28h-61.8v-8.4h86.5s41.6 5 41.6-60.4-37.7-63.1-37.7-63.1h-22.6v30.4s1.2 37.7-37.1 37.7h-63.9s-35.8-.6-35.8 34.6v58.1s-5.4 26.1 70.2 26.1zm34.9-19.5c-6.5 0-11.7-5.2-11.7-11.7s5.2-11.7 11.7-11.7 11.7 5.2 11.7 11.7-5.2 11.7-11.7 11.7z"/>
-                </svg>
-              </div>
-              <h3>Python</h3>
-              <p>pandas, scikit-learn, classification, model evaluation, NLP, TF-IDF, sentiment analysis, and business interpretation.</p>
-            </div>
-            <span class="skill-pill">Predictive analytics</span>
+        <article class="ops-card">
+          <div class="ops-number">01</div>
+          <h3>Data warehousing & SQL</h3>
+          <p>
+            Building clean, analytics-ready data layers from raw operational data using structured transformation logic.
+          </p>
+          <div class="ops-tools">
+            SQL Server · T-SQL · ETL · Bronze/Silver/Gold · Star Schema
           </div>
-
-          <div class="skill-card">
-            <div>
-              <div class="skill-icon" style="background: rgba(36,130,186,0.12); border-color: rgba(36,130,186,0.2);">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                  <text x="2" y="18" font-size="16" font-weight="900" fill="#2482BA" font-family="serif">R</text>
-                </svg>
-              </div>
-              <h3>R</h3>
-              <p>tidyverse, ggplot2, clustering, conjoint analysis, PCA, LASSO, random forest, simulation, and report-ready outputs.</p>
-            </div>
-            <span class="skill-pill">Statistical modelling</span>
+          <div class="ops-evidence">
+            <strong>Evidence:</strong> SQL Data Warehouse & Sales Analytics project.
           </div>
+        </article>
 
-          <div class="skill-card">
-            <div>
-              <div class="skill-icon" style="background: rgba(249,115,22,0.1); border-color: rgba(249,115,22,0.2);">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                  <ellipse cx="12" cy="6" rx="8" ry="3" fill="#F97316" opacity="0.85"/>
-                  <path d="M4 6v4c0 1.66 3.58 3 8 3s8-1.34 8-3V6" stroke="#F97316" stroke-width="1.4" fill="none"/>
-                  <path d="M4 10v4c0 1.66 3.58 3 8 3s8-1.34 8-3v-4" stroke="#F97316" stroke-width="1.4" fill="none"/>
-                  <path d="M4 14v4c0 1.66 3.58 3 8 3s8-1.34 8-3v-4" stroke="#F97316" stroke-width="1.4" fill="none"/>
-                </svg>
-              </div>
-              <h3>SQL</h3>
-              <p>Data querying, joins, aggregation, filtering, cleaning logic, and translating business questions into data queries.</p>
-            </div>
-            <span class="skill-pill">Data extraction</span>
+        <article class="ops-card">
+          <div class="ops-number">02</div>
+          <h3>Business intelligence & reporting</h3>
+          <p>
+            Designing dashboards that translate performance data into clear KPIs, trends and management insights.
+          </p>
+          <div class="ops-tools">
+            Power BI · DAX · KPI Cards · Slicers · Dashboard Storytelling
           </div>
-
-          <div class="skill-card">
-            <div>
-              <div class="skill-icon" style="background: rgba(243,186,47,0.1); border-color: rgba(243,186,47,0.2);">
-                <svg width="20" height="20" viewBox="0 0 24 24">
-                  <rect x="2" y="13" width="4" height="9" rx="1" fill="#F3BE2F"/>
-                  <rect x="8" y="8" width="4" height="14" rx="1" fill="#F3BE2F" opacity="0.8"/>
-                  <rect x="14" y="3" width="4" height="19" rx="1" fill="#F3BE2F" opacity="0.6"/>
-                  <rect x="20" y="6" width="2" height="16" rx="1" fill="#F3BE2F" opacity="0.4"/>
-                </svg>
-              </div>
-              <h3>Power BI</h3>
-              <p>Dashboard design, KPI cards, slicers, data storytelling, business reporting, and executive-friendly visualisation.</p>
-            </div>
-            <span class="skill-pill">Business intelligence</span>
+          <div class="ops-evidence">
+            <strong>Evidence:</strong> AdventureWorks Sales Dashboard.
           </div>
+        </article>
 
-          <div class="skill-card">
-            <div>
-              <div class="skill-icon" style="background: rgba(33,115,70,0.1); border-color: rgba(33,115,70,0.2);">
-                <svg width="20" height="20" viewBox="0 0 24 24">
-                  <rect x="2" y="2" width="20" height="20" rx="3" fill="#217346"/>
-                  <path d="M7 8l2.5 4L7 16h2l1.5-2.5L12 16h2l-2.5-4L14 8h-2l-1.5 2.5L9 8H7z" fill="white"/>
-                  <line x1="15" y1="8" x2="15" y2="16" stroke="white" stroke-width="1.5"/>
-                  <line x1="15" y1="16" x2="19" y2="16" stroke="white" stroke-width="1.5"/>
-                </svg>
-              </div>
-              <h3>Excel</h3>
-              <p>Data cleaning, formula modelling, scenario testing, validation checks, summary tables, and decision support models.</p>
-            </div>
-            <span class="skill-pill">Analysis support</span>
+        <article class="ops-card">
+          <div class="ops-number">03</div>
+          <h3>Predictive analytics</h3>
+          <p>
+            Applying statistical and machine learning methods to understand patterns, classify outcomes and evaluate model performance.
+          </p>
+          <div class="ops-tools">
+            Python · R · Regression · Classification · Clustering · Model Evaluation
           </div>
-
-          <div class="skill-card">
-            <div>
-              <div class="skill-icon" style="background: rgba(124,90,240,0.12); border-color: rgba(124,90,240,0.2);">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                  <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke="#7C5AF0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-              </div>
-              <h3>Business Analytics</h3>
-              <p>CRISP-DM, segmentation, prediction, optimisation, decision support, visual storytelling, and recommendation writing.</p>
-            </div>
-            <span class="skill-pill">Decision focus</span>
+          <div class="ops-evidence">
+            <strong>Evidence:</strong> Airline satisfaction and marketing analytics projects.
           </div>
+        </article>
 
-        </div>
+        <article class="ops-card">
+          <div class="ops-number">04</div>
+          <h3>Optimisation & decision support</h3>
+          <p>
+            Turning model outputs into decisions under constraints such as limited capacity, time or resources.
+          </p>
+          <div class="ops-tools">
+            Knapsack Optimisation · PuLP · Simulation · Capacity Planning · Regret Analysis
+          </div>
+          <div class="ops-evidence">
+            <strong>Evidence:</strong> Hospital capacity planning and MindWise dissertation work.
+          </div>
+        </article>
+
+        <article class="ops-card">
+          <div class="ops-number">05</div>
+          <h3>Customer & commercial analytics</h3>
+          <p>
+            Connecting customer behaviour, product performance and revenue patterns to practical business recommendations.
+          </p>
+          <div class="ops-tools">
+            RFM · Segmentation · Conjoint · PCA · Revenue Analysis · Recommendations
+          </div>
+          <div class="ops-evidence">
+            <strong>Evidence:</strong> Coffee marketing analytics and sales reporting work.
+          </div>
+        </article>
+
+        <article class="ops-card">
+          <div class="ops-number">06</div>
+          <h3>Workflow automation & quality checks</h3>
+          <p>
+            Creating repeatable workflows and validation checks so analysis is cleaner, faster and easier to trust.
+          </p>
+          <div class="ops-tools">
+            Alteryx · Excel · Data Cleaning · Validation Checks · Repeatable Reporting
+          </div>
+          <div class="ops-evidence">
+            <strong>Evidence:</strong> Alteryx certification, Excel modelling and SQL transformation workflows.
+          </div>
+        </article>
+
       </div>
-    </section>
-
+    </div>
+  </div>
+</section>
     <!-- ═══════════ CONTACT ═══════════ -->
     <section id="contact" class="section">
       <div class="container">
