@@ -1218,16 +1218,35 @@ h1 {
   filter: brightness(1.06) contrast(1.03);
 }
 
-/* SQL warehouse banner needs slightly more room */
+/* SQL warehouse image crop */
 .project-visual-sql {
-  height: 300px;
-  padding: 10px;
+  height: 270px;
+  background:
+    radial-gradient(circle at 50% 45%, rgba(58,180,245,0.08), transparent 38%),
+    linear-gradient(180deg, #020617 0%, #030712 100%);
+}
+
+.project-visual-sql img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 62%;
+  transform: scale(1.08);
+}
+
+.project-card:hover .project-visual-sql img {
+  transform: scale(1.11);
+  filter: brightness(1.06) contrast(1.04);
 }
 
 @media (max-width: 680px) {
   .project-visual-sql {
     height: 220px;
-    padding: 6px;
+  }
+
+  .project-visual-sql img {
+    object-position: center 62%;
+    transform: scale(1.08);
   }
 }
 
@@ -2740,8 +2759,8 @@ h1 {
 
       <!-- PROJECT 05 -->
       <article class="project-card">
-      <div class="project-visual project-visual-contain project-visual-sql">
-        <img src="assets/projects/project-05-sql-data-warehouse.png?v=3" alt="SQL Data Warehouse project visual">
+      <div class="project-visual project-visual-sql">
+        <img src="assets/projects/project-05-sql-data-warehouse.png?v=4" alt="SQL Data Warehouse project visual">
       </div>
 
         <div class="project-content">
