@@ -1173,268 +1173,98 @@ h1 {
     padding: 18px;
   }
 }
-    /* ─── PROJECTS ─── */
-    .project-label {
-      position: absolute;
-      top: 18px;
-      left: 20px;
-      z-index: 2;
-      padding: 6px 10px;
-      border-radius: 999px;
-      border: 1px solid rgba(58,180,245,0.22);
-      background: rgba(3,7,18,0.34);
-      color: #bae6fd;
-      font-family: var(--mono);
-      font-size: 0.66rem;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-    }
-    
-    .project-art {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      z-index: 0;
-      pointer-events: none;
-    }
-    
-    .project-visual-airline {
-      background:
-        radial-gradient(circle at 22% 22%, rgba(58,180,245,0.24), transparent 34%),
-        radial-gradient(circle at 84% 14%, rgba(124,90,240,0.22), transparent 36%),
-        linear-gradient(135deg, rgba(58,180,245,0.18), rgba(124,90,240,0.18)),
-        var(--surface-3);
-    }
-    
-    .project-visual-airline::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background:
-        linear-gradient(rgba(255,255,255,0.035) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,0.035) 1px, transparent 1px);
-      background-size: 26px 26px;
-      mask-image: linear-gradient(180deg, rgba(0,0,0,0.85), transparent 92%);
-      pointer-events: none;
-    }
 
-    .project-result-pill {
-      position: absolute;
-      left: 20px;
-      bottom: 48px;
-      z-index: 2;
-      width: fit-content;
-      padding: 6px 10px;
-      border-radius: 999px;
-      border: 1px solid rgba(34,197,94,0.24);
-      background: rgba(34,197,94,0.10);
-      color: #bbf7d0;
-      font-family: var(--mono);
-      font-size: 0.66rem;
-      letter-spacing: 0.04em;
-    }
-    
-    .project-visual-airline .project-visual-title {
-      max-width: 330px;
-    }
-    .project-visual-airline .project-visual-title,
-    .project-visual-airline .project-number {
-      z-index: 2;
-    }   
-    .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0,1fr));
-      gap: 20px;
-    }
+/* ─── PROJECTS ─── */
+.projects-section {
+  position: relative;
+  overflow: hidden;
+  background: rgba(255,255,255,0.012);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
 
-    .project-card {
-      display: flex;
-      flex-direction: column;
-      overflow: hidden;
-      border: 1px solid var(--line);
-      border-radius: var(--radius-lg);
-      background: var(--surface);
-      transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
-    }
+.projects-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 12% 12%, rgba(58,180,245,0.09), transparent 30%),
+    radial-gradient(circle at 88% 18%, rgba(124,90,240,0.10), transparent 34%),
+    radial-gradient(circle at 50% 100%, rgba(58,180,245,0.045), transparent 30%);
+  pointer-events: none;
+}
 
-    .project-card:hover {
-      transform: translateY(-5px);
-      border-color: rgba(58,180,245,0.24);
-      box-shadow: var(--shadow);
-    }
+.projects-section .container {
+  position: relative;
+  z-index: 1;
+}
 
-    /* Project visual banner with unique subtle data-art per project */
-    .project-visual {
-      height: 180px;
-      padding: 22px;
-      display: flex;
-      align-items: flex-end;
-      justify-content: space-between;
-      gap: 16px;
-      position: relative;
-      overflow: hidden;
-    }
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+}
 
-    /* Default gradient bg */
-    .project-visual { background: var(--surface-3); }
+/* Project card shell */
+.project-card {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border-radius: 28px;
+  border: 1px solid rgba(255,255,255,0.08);
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.015)),
+    var(--surface);
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.24s ease, box-shadow 0.24s ease, border-color 0.24s ease;
+}
 
-    /* Grid overlay */
-    .project-visual::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background-image:
-        linear-gradient(rgba(255,255,255,0.055) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,0.055) 1px, transparent 1px);
-      background-size: 26px 26px;
-      mask-image: linear-gradient(180deg, rgba(0,0,0,0.65) 0%, transparent 100%);
-      pointer-events: none;
-    }
+.project-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(58,180,245,0.26);
+  box-shadow: var(--shadow);
+}
 
-    /* Per-project colour accent on banner */
-    .project-card:nth-child(1) .project-visual { background: linear-gradient(135deg, rgba(58,180,245,0.22), rgba(124,90,240,0.18)), var(--surface-3); }
-    .project-card:nth-child(2) .project-visual { background: linear-gradient(135deg, rgba(249,115,22,0.18), rgba(234,179,8,0.14)), var(--surface-3); }
-    .project-card:nth-child(3) .project-visual { background: linear-gradient(135deg, rgba(34,197,94,0.18), rgba(58,180,245,0.15)), var(--surface-3); }
-    .project-card:nth-child(4) .project-visual { background: linear-gradient(135deg, rgba(239,68,68,0.16), rgba(249,115,22,0.14)), var(--surface-3); }
-    .project-card:nth-child(5) .project-visual { background: linear-gradient(135deg, rgba(124,90,240,0.22), rgba(236,72,153,0.15)), var(--surface-3); }
+/* Featured project */
+.project-featured {
+  grid-column: 1 / -1;
+}
 
-    /* Data sparklines for each project banner */
-    .project-sparkline {
-      position: absolute;
-      bottom: 40px;
-      right: 0;
-      left: 0;
-      pointer-events: none;
-      opacity: 0.45;
-    }
+.project-featured .project-content {
+  display: grid;
+  grid-template-columns: 0.82fr 1.18fr;
+  gap: 24px;
+  align-items: start;
+}
 
-    .project-visual-title {
-      position: relative;
-      z-index: 1;
-      max-width: 300px;
-      font-size: 1.18rem;
-      line-height: 1.1;
-      letter-spacing: -0.04em;
-      font-weight: 900;
-    }
+.project-featured .project-intro {
+  min-width: 0;
+}
 
-    .project-number {
-      position: relative;
-      z-index: 1;
-      color: rgba(255,255,255,0.3);
-      font-size: 3.2rem;
-      line-height: 0.85;
-      letter-spacing: -0.08em;
-      font-weight: 900;
-      font-family: var(--mono);
-      flex-shrink: 0;
-    }
-
-    .project-body {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      padding: 22px;
-    }
-
-    .project-body h3 {
-      margin-bottom: 9px;
-      font-size: 1.12rem;
-      line-height: 1.2;
-      letter-spacing: -0.04em;
-      font-weight: 800;
-    }
-
-    .project-summary {
-      color: var(--muted);
-      font-size: 0.94rem;
-      margin-bottom: 14px;
-      line-height: 1.65;
-    }
-
-    .tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 7px;
-      margin-bottom: 16px;
-    }
-
-    .tag {
-      padding: 5px 10px;
-      border-radius: 999px;
-      border: 1px solid rgba(58,180,245,0.2);
-      background: rgba(58,180,245,0.08);
-      color: #bae6fd;
-      font-size: 0.76rem;
-      font-weight: 700;
-      font-family: var(--mono);
-    }
-
-    .project-details {
-      display: grid;
-      gap: 8px;
-      padding: 14px;
-      border-radius: 16px;
-      background: rgba(255,255,255,0.03);
-      border: 1px solid rgba(255,255,255,0.06);
-      color: var(--muted);
-      font-size: 0.88rem;
-      margin-bottom: 16px;
-      line-height: 1.5;
-    }
-
-    .project-details strong { color: var(--text); }
-
-    .project-actions {
-      margin-top: auto;
-      padding-top: 4px;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 16px;
-    }
-
-    .text-link {
-      color: var(--accent);
-      font-weight: 700;
-      font-size: 0.88rem;
-      transition: color 0.2s;
-    }
-
-    .text-link:hover { color: #bae6fd; }
-
-    /* Featured card (full width) */
-    .project-card.featured {
-      grid-column: 1 / -1;
-      display: grid;
-      grid-template-columns: 0.9fr 1.1fr;
-    }
-
-    .project-card.featured .project-visual {
-      height: auto;
-      min-height: 100%;
-    }
-/* ─── PROJECT IMAGE VISUALS ─── */
+/* Project image visuals */
 .project-visual {
   position: relative;
-  height: 190px;
+  height: 270px;
   overflow: hidden;
-  border-radius: 22px 22px 0 0;
-  background: var(--surface);
-  border-bottom: 1px solid rgba(255,255,255,0.07);
+  background: #020617;
+  border-bottom: 1px solid rgba(255,255,255,0.075);
+}
+
+.project-featured .project-visual {
+  height: 390px;
 }
 
 .project-visual img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center;
   display: block;
   transform: scale(1.01);
-  transition: transform 0.35s ease, filter 0.35s ease;
+  transition: transform 0.4s ease, filter 0.4s ease;
 }
 
-.project-card:hover .project-visual img,
-.project-featured:hover .project-visual img {
+.project-card:hover .project-visual img {
   transform: scale(1.045);
   filter: brightness(1.08) contrast(1.04);
 }
@@ -1444,32 +1274,144 @@ h1 {
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(180deg, rgba(3,7,18,0.00) 45%, rgba(3,7,18,0.22) 100%),
-    radial-gradient(circle at 75% 20%, rgba(58,180,245,0.08), transparent 36%);
+    linear-gradient(180deg, rgba(3,7,18,0.00) 52%, rgba(3,7,18,0.18) 100%),
+    radial-gradient(circle at 78% 16%, rgba(58,180,245,0.08), transparent 34%);
   pointer-events: none;
 }
 
-.project-featured .project-visual {
-  height: 240px;
-  border-radius: 22px;
-  border: 1px solid rgba(255,255,255,0.08);
+/* Project body */
+.project-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 26px;
 }
 
-.project-card .project-visual {
-  margin: -1px -1px 0;
+.project-type {
+  color: var(--accent);
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  margin-bottom: 10px;
 }
 
-.project-card-body {
-  padding: 22px;
+.project-content h3 {
+  font-size: 1.35rem;
+  line-height: 1.18;
+  letter-spacing: -0.045em;
+  font-weight: 850;
+  margin-bottom: 11px;
 }
 
-@media (max-width: 800px) {
-  .project-visual {
-    height: 170px;
+.project-content > p,
+.project-intro > p {
+  color: var(--muted);
+  font-size: 0.94rem;
+  line-height: 1.72;
+  margin-bottom: 18px;
+}
+
+/* Case study points */
+.case-points {
+  display: grid;
+  gap: 10px;
+  padding: 16px;
+  border-radius: 19px;
+  border: 1px solid rgba(255,255,255,0.075);
+  background: rgba(255,255,255,0.03);
+  margin-bottom: 18px;
+}
+
+.case-points p {
+  color: var(--muted);
+  font-size: 0.88rem;
+  line-height: 1.55;
+  margin: 0;
+}
+
+.case-points strong {
+  color: var(--text);
+  font-weight: 800;
+}
+
+/* Project links */
+.project-actions {
+  margin-top: auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  padding-top: 4px;
+}
+
+.text-link {
+  color: var(--accent);
+  font-weight: 800;
+  font-size: 0.88rem;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.text-link:hover {
+  color: #bae6fd;
+}
+
+/* Optional subtle card-specific border glow */
+.project-card:nth-child(1):hover {
+  border-color: rgba(58,180,245,0.32);
+}
+
+.project-card:nth-child(2):hover {
+  border-color: rgba(245,158,11,0.30);
+}
+
+.project-card:nth-child(3):hover {
+  border-color: rgba(34,197,94,0.30);
+}
+
+.project-card:nth-child(4):hover {
+  border-color: rgba(234,179,8,0.30);
+}
+
+.project-card:nth-child(5):hover {
+  border-color: rgba(124,90,240,0.30);
+}
+
+/* Responsive */
+@media (max-width: 1050px) {
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .project-featured .project-content {
+    grid-template-columns: 1fr;
   }
 
   .project-featured .project-visual {
-    height: 200px;
+    height: 300px;
+  }
+
+  .project-visual {
+    height: 250px;
+  }
+}
+
+@media (max-width: 680px) {
+  .project-content {
+    padding: 22px;
+  }
+
+  .project-featured .project-visual,
+  .project-visual {
+    height: 210px;
+  }
+
+  .project-content h3 {
+    font-size: 1.18rem;
+  }
+
+  .case-points {
+    padding: 14px;
   }
 }
 /* ─── ACHIEVEMENTS ─── */
@@ -2551,41 +2493,36 @@ h1 {
         <h2 class="section-title">Featured analytics work.</h2>
       </div>
       <p class="section-copy">
-        Each project starts with a business problem, not a method. These show how I approach data preparation, modelling, visualisation, and translating findings into recommendations.
+        Applied projects across machine learning, marketing analytics, optimisation, business intelligence and SQL data warehousing.
       </p>
     </div>
 
     <div class="projects-grid">
 
-      <!-- PROJECT 01 -->
+      <!-- PROJECT 01: FEATURED -->
       <article class="project-card project-featured">
         <div class="project-visual">
           <img src="assets/projects/project-01-airline-customer-recommendation.png" alt="Airline Customer Recommendation Analytics project visual">
         </div>
 
-        <div class="project-card-body">
-          <div class="project-meta">Machine Learning · NLP · Customer Analytics</div>
-          <h3>Airline Customer Satisfaction Analytics</h3>
+        <div class="project-content">
+          <div class="project-type">Featured case study · Machine learning · NLP</div>
+
+          <h3>Airline Customer Recommendation Analytics</h3>
+
           <p>
-            Analysed airline review data to identify service themes, sentiment patterns, and value-for-money signals associated with customer recommendation behaviour.
+            Built a machine-learning workflow to understand what drives airline customer recommendations using review text, service ratings, sentiment features and classification models.
           </p>
 
-          <div class="project-tags">
-            <span>Python</span>
-            <span>NLP</span>
-            <span>Machine Learning</span>
-            <span>Customer Analytics</span>
-          </div>
-
-          <div class="project-summary">
+          <div class="case-points">
             <p>
-              <strong>Business problem:</strong> What drives customer recommendation and dissatisfaction in airline reviews?
+              <strong>Question:</strong> What signals explain whether a customer would recommend an airline?
             </p>
             <p>
-              <strong>Methods:</strong> Text analytics, sentiment analysis, classification modelling, TF-IDF, VADER, kNN/SVM and feature importance.
+              <strong>Approach:</strong> Sentiment analysis, TF-IDF features, classification modelling, feature importance and model evaluation.
             </p>
             <p>
-              <strong>Outcome:</strong> Built models to predict airline recommendation behaviour from service ratings and review text, with the best model achieving 96.3% accuracy and 98.8% ROC-AUC.
+              <strong>Result:</strong> Best model achieved 96.3% accuracy and 98.8% ROC-AUC.
             </p>
           </div>
 
@@ -2602,29 +2539,24 @@ h1 {
           <img src="assets/projects/project-02-coffee-marketing-strategy.png" alt="Private-Label Coffee Strategy project visual">
         </div>
 
-        <div class="project-card-body">
-          <div class="project-meta">Marketing Analytics · Customer Strategy</div>
-          <h3>Marketing Analytics: Private-Label Coffee Strategy</h3>
+        <div class="project-content">
+          <div class="project-type">Marketing analytics · Customer strategy</div>
+
+          <h3>Private-Label Coffee Strategy</h3>
+
           <p>
-            Used customer segmentation, conjoint analysis, PCA positioning, and Power BI to design a data-supported private-label coffee launch strategy.
+            Designed a data-supported private-label coffee launch strategy using segmentation, conjoint analysis, positioning and dashboarding.
           </p>
 
-          <div class="project-tags">
-            <span>R</span>
-            <span>Power BI</span>
-            <span>Segmentation</span>
-            <span>Conjoint Analysis</span>
-          </div>
-
-          <div class="project-summary">
+          <div class="case-points">
             <p>
-              <strong>Business problem:</strong> Which private-label coffee product should a UK grocery retailer launch, and which customer segment should it target?
+              <strong>Question:</strong> Which coffee product should a UK grocery retailer launch, and which customer segment should it target?
             </p>
             <p>
-              <strong>Methods:</strong> RFM analysis, K-means clustering, conjoint analysis, PCA positioning, and Power BI dashboarding.
+              <strong>Approach:</strong> RFM analysis, K-means clustering, conjoint analysis, PCA positioning and Power BI.
             </p>
             <p>
-              <strong>Outcome:</strong> Recommended a sustainable dark-roast 100% Arabica capsule coffee priced at £5, targeting high-value coffee loyalists with a 98.5% coffee buyer rate.
+              <strong>Result:</strong> Recommended a sustainable dark-roast 100% Arabica capsule coffee priced at £5, targeting high-value coffee loyalists.
             </p>
           </div>
 
@@ -2641,28 +2573,24 @@ h1 {
           <img src="assets/projects/project-03-hospital-capacity-planning.png" alt="Hospital Capacity Planning project visual">
         </div>
 
-        <div class="project-card-body">
-          <div class="project-meta">Optimisation · Healthcare Analytics</div>
-          <h3>Hospital Capacity Planning and Optimisation</h3>
+        <div class="project-content">
+          <div class="project-type">Optimisation · Healthcare analytics</div>
+
+          <h3>Hospital Capacity Planning</h3>
+
           <p>
-            Built a mixed-integer linear programming model to optimise weekly procedure-room configurations for a hospital 26-week planning horizon.
+            Built an optimisation model to plan hospital procedure-room configurations across a 26-week horizon under operational constraints.
           </p>
 
-          <div class="project-tags">
-            <span>Python</span>
-            <span>Optimisation</span>
-            <span>Healthcare Analytics</span>
-          </div>
-
-          <div class="project-summary">
+          <div class="case-points">
             <p>
-              <strong>Business problem:</strong> How should a hospital configure procedure rooms each week to meet demand while respecting constraints and minimising cost?
+              <strong>Question:</strong> How should hospital rooms be configured each week to meet demand while respecting capacity constraints?
             </p>
             <p>
-              <strong>Methods:</strong> Mixed-integer linear programming, capacity constraints, setup-cost modelling, decision feasibility constraints, and solver validation.
+              <strong>Approach:</strong> Mixed-integer linear programming, capacity constraints, setup-cost modelling and solver validation.
             </p>
             <p>
-              <strong>Outcome:</strong> Produced a 26-week room configuration plan with a minimum total cost of 2,850,600 while ensuring all room constraints and patient demand were respected.
+              <strong>Result:</strong> Produced a feasible 26-week room configuration plan with minimum total cost of 2,850,600.
             </p>
           </div>
 
@@ -2679,29 +2607,24 @@ h1 {
           <img src="assets/projects/project-04-sales-performance-dashboard.png" alt="Sales Performance Dashboard project visual">
         </div>
 
-        <div class="project-card-body">
-          <div class="project-meta">Power BI · Dashboarding · Sales Analytics</div>
-          <h3>AdventureWorks Sales Performance Dashboard</h3>
+        <div class="project-content">
+          <div class="project-type">Power BI · Sales analytics</div>
+
+          <h3>Sales Performance Dashboard</h3>
+
           <p>
-            Built an interactive Power BI dashboard for a simulated retail business scenario, using sales data to monitor revenue, customer behaviour, product performance, and regional trends.
+            Created an interactive Power BI dashboard to monitor sales performance, customer behaviour, product performance and regional trends.
           </p>
 
-          <div class="project-tags">
-            <span>Power BI</span>
-            <span>DAX</span>
-            <span>Data Visualisation</span>
-            <span>Sales Analytics</span>
-          </div>
-
-          <div class="project-summary">
+          <div class="case-points">
             <p>
-              <strong>Business problem:</strong> How can a retail business monitor sales performance and identify commercial opportunities through a clear executive report?
+              <strong>Question:</strong> How can a retail business monitor performance and identify commercial opportunities through a clear executive report?
             </p>
             <p>
-              <strong>Methods:</strong> Power BI dashboarding, DAX measures, KPI design, customer analysis, regional analysis, and what-if scenario modelling.
+              <strong>Approach:</strong> Power BI dashboarding, DAX measures, KPI design, customer analysis, regional analysis and scenario modelling.
             </p>
             <p>
-              <strong>Outcome:</strong> Created an interactive dashboard that tracks revenue, profit, orders, returns, customer insights, regional performance, and data-backed price adjustment scenarios.
+              <strong>Result:</strong> Delivered an executive dashboard covering revenue, profit, orders, returns, customers, regions and pricing scenarios.
             </p>
           </div>
 
@@ -2718,29 +2641,24 @@ h1 {
           <img src="assets/projects/project-05-sql-data-warehouse.png" alt="SQL Data Warehouse project visual">
         </div>
 
-        <div class="project-card-body">
-          <div class="project-meta">SQL Server · T-SQL · Data Warehouse</div>
+        <div class="project-content">
+          <div class="project-type">SQL Server · Data warehouse</div>
+
           <h3>SQL Data Warehouse &amp; Sales Analytics</h3>
+
           <p>
-            Built an end-to-end SQL Server data warehouse using CRM and ERP sales data, moving raw CSV files through Bronze, Silver and Gold layers into a clean analytics-ready star schema.
+            Built an end-to-end SQL Server data warehouse using CRM and ERP sales data, transforming raw CSV files into a clean analytics-ready model.
           </p>
 
-          <div class="project-tags">
-            <span>SQL Server</span>
-            <span>T-SQL</span>
-            <span>ETL</span>
-            <span>Star Schema</span>
-          </div>
-
-          <div class="project-summary">
+          <div class="case-points">
             <p>
-              <strong>Business problem:</strong> How can CRM and ERP sales data be integrated, cleaned, and structured into a reliable source for sales analysis?
+              <strong>Question:</strong> How can CRM and ERP sales data be integrated, cleaned and structured into a reliable source for analysis?
             </p>
             <p>
-              <strong>Methods:</strong> Bronze, Silver and Gold architecture, data cleansing, transformation logic, joins, views, fact and dimension modelling, and business analysis queries.
+              <strong>Approach:</strong> Bronze, Silver and Gold architecture, ETL, data cleansing, T-SQL views, joins, fact and dimension modelling.
             </p>
             <p>
-              <strong>Outcome:</strong> Created a business-ready Gold layer with sales, customer and product views for analysing revenue trends, top products, customer behaviour, and product performance.
+              <strong>Result:</strong> Created a business-ready Gold layer for analysing revenue trends, top products, customer behaviour and product performance.
             </p>
           </div>
 
@@ -2753,6 +2671,7 @@ h1 {
     </div>
   </div>
 </section>
+
 <!-- ═══════════ ACHIEVEMENTS ═══════════ -->
 <section id="achievements" class="section achievements-section">
   <div class="container">
