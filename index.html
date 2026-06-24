@@ -1534,6 +1534,34 @@ h1 {
     padding: 14px;
   }
 }
+    /* Projects title upgrade */
+.projects-header-clean {
+  display: block;
+  margin-bottom: 34px;
+}
+
+.projects-title {
+  max-width: 760px;
+  font-size: clamp(3rem, 6.2vw, 6rem);
+  line-height: 0.95;
+  letter-spacing: -0.075em;
+  font-weight: 900;
+}
+
+.projects-title .gradient-text {
+  background: linear-gradient(135deg, var(--accent) 0%, #8fb3ff 35%, #a78bfa 70%, var(--accent-2) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  display: inline-block;
+  padding-right: 0.04em;
+}
+
+@media (max-width: 680px) {
+  .projects-title {
+    font-size: clamp(2.6rem, 13vw, 4.2rem);
+  }
+}
 /* ─── ACHIEVEMENTS ─── */
 .achievements-section {
   background: rgba(255,255,255,0.012);
@@ -2607,15 +2635,14 @@ h1 {
 <section id="projects" class="section projects-section">
   <div class="container">
 
-    <div class="section-header">
-      <div>
-        <div class="section-kicker">// projects</div>
-        <h2 class="section-title">Featured analytics work.</h2>
-      </div>
-      <p class="section-copy">
-        Applied projects across machine learning, marketing analytics, optimisation, business intelligence and SQL data warehousing.
-      </p>
+  <div class="section-header projects-header-clean">
+    <div>
+      <div class="section-kicker">// projects</div>
+      <h2 class="section-title projects-title">
+        Featured <span class="gradient-text">analytics</span> work.
+      </h2>
     </div>
+  </div>
 
     <div class="projects-grid">
 
