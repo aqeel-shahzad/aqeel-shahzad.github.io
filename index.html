@@ -1175,6 +1175,73 @@ h1 {
 }
 
 /* ─── PROJECTS ─── */
+
+/* Featured project image: crop from the top so the visual stays clean */
+.project-featured .project-visual {
+  height: 330px;
+}
+
+.project-featured .project-visual img {
+  object-fit: cover;
+  object-position: top center;
+}
+
+/* Add a subtle fade at the bottom of the image */
+.project-featured .project-visual::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(3,7,18,0.00) 55%, rgba(3,7,18,0.70) 100%);
+  pointer-events: none;
+}
+
+/* Featured content layout */
+.project-featured-content {
+  display: grid;
+  grid-template-columns: 0.95fr 1.05fr;
+  gap: 28px;
+  align-items: stretch;
+}
+
+.project-featured-content .project-intro {
+  display: flex;
+  flex-direction: column;
+}
+
+.project-featured-content h3 {
+  font-size: clamp(1.45rem, 2vw, 2rem);
+  line-height: 1.08;
+  letter-spacing: -0.055em;
+  margin-bottom: 12px;
+}
+
+.project-featured-content .project-actions {
+  margin-top: auto;
+}
+
+.featured-case-points {
+  align-self: stretch;
+  margin-bottom: 0;
+  justify-content: center;
+}
+
+@media (max-width: 1050px) {
+  .project-featured-content {
+    grid-template-columns: 1fr;
+  }
+
+  .project-featured .project-visual {
+    height: 280px;
+  }
+}
+
+@media (max-width: 680px) {
+  .project-featured .project-visual {
+    height: 220px;
+  }
+}
+    
 .projects-section {
   position: relative;
   overflow: hidden;
