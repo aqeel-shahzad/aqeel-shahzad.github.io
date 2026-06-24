@@ -450,6 +450,114 @@
       pointer-events: none;
     }
 
+    /* ─── HERO COMMAND CARD ─── */
+.hero-command-card {
+  position: relative;
+  padding: 24px;
+  min-height: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.command-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--line);
+  position: relative;
+  z-index: 2;
+}
+
+.command-label {
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  color: var(--accent);
+  letter-spacing: 0.08em;
+}
+
+.command-dots {
+  display: flex;
+  gap: 6px;
+}
+
+.command-dots span {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.2);
+}
+
+.command-dots span:nth-child(1) { background: rgba(58,180,245,0.9); }
+.command-dots span:nth-child(2) { background: rgba(124,90,240,0.85); }
+.command-dots span:nth-child(3) { background: rgba(34,197,94,0.8); }
+
+.command-avatar-wrap {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  z-index: 2;
+}
+
+.command-avatar {
+  width: 108px;
+  height: 108px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid rgba(58,180,245,0.22);
+  box-shadow:
+    0 0 0 8px rgba(58,180,245,0.05),
+    0 18px 40px rgba(0,0,0,0.35);
+  background: rgba(255,255,255,0.03);
+}
+
+.command-body {
+  display: grid;
+  gap: 12px;
+  position: relative;
+  z-index: 2;
+}
+
+.command-block {
+  padding: 14px 16px;
+  border-radius: 18px;
+  border: 1px solid rgba(255,255,255,0.06);
+  background: rgba(255,255,255,0.03);
+  transition: border-color 0.2s ease, background 0.2s ease, transform 0.2s ease;
+}
+
+.command-block:hover {
+  border-color: rgba(58,180,245,0.18);
+  background: rgba(58,180,245,0.05);
+  transform: translateY(-2px);
+}
+
+.command-prompt {
+  font-family: var(--mono);
+  font-size: 0.76rem;
+  color: var(--accent);
+  letter-spacing: 0.06em;
+  margin-bottom: 6px;
+}
+
+.command-output {
+  color: var(--text);
+  font-size: 0.9rem;
+  line-height: 1.55;
+}
+
+@media (max-width: 1000px) {
+  .hero-command-card {
+    justify-self: stretch;
+  }
+
+  .command-avatar {
+    width: 94px;
+    height: 94px;
+  }
+}
     /* Terminal grid overlay */
     .hero-card::before {
       content: '';
@@ -1654,7 +1762,7 @@
           <h1>Commercial experience, now powered by <span class="gradient-text">analytics.</span></h1>
 
           <p class="hero-copy">
-            I'm Aqeel Shahzad, an MSc Business Analytics student at Queen's University Belfast with nearly five years of commercial, client-facing and stakeholder experience across the UK, UAE, Saudi Arabia and Pakistan. I now use SQL, Power BI, R, Python and machine learning to turn business data into practical decisions.
+           I’m Aqeel Shahzad, an MSc Business Analytics student at Queen’s University Belfast with nearly five years of commercial, client-facing and stakeholder experience across the UK, UAE, Saudi Arabia and Pakistan. I now use SQL, Power BI, R, Python and machine learning to turn business data into practical decisions.
           </p>
 
           <div class="button-row">
@@ -1782,50 +1890,48 @@
           </div>
         </div>
 
-        <!-- Right panel -->
-        <aside class="hero-card" aria-label="Portfolio profile card">
-          <div class="profile-panel">
+<!-- Right panel -->
+<aside class="hero-card hero-command-card" aria-label="Portfolio profile card">
+  <div class="command-card-top">
+    <div class="command-label">aqeel@portfolio:~</div>
+    <div class="command-dots" aria-hidden="true">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
 
-            <div class="profile-top profile-top-enhanced">
-              <div class="avatar-visual" aria-hidden="true">
-                <div class="avatar-face"></div>
-              </div>
+  <div class="command-avatar-wrap">
+    <img src="assets/aqeel-avatar.png" alt="Illustrated avatar of Aqeel Shahzad" class="command-avatar">
+  </div>
 
-              <div>
-                <h2>Aqeel Shahzad</h2>
-                <p>Commercial background. Analytics direction.</p>
-              </div>
-            </div>
+  <div class="command-body">
+    <div class="command-block">
+      <div class="command-prompt">&gt; role_target</div>
+      <div class="command-output">Business Analyst · Data Analyst · BI Analyst</div>
+    </div>
 
-            <div class="profile-note">
-              <span class="profile-note-kicker">Current focus</span>
-              <p>
-                Building a portfolio across SQL, Power BI, Python, R and optimisation, with a focus on turning business problems into clear analytical decisions.
-              </p>
-            </div>
+    <div class="command-block">
+      <div class="command-prompt">&gt; toolkit</div>
+      <div class="command-output">SQL · Power BI · Python · R · Excel</div>
+    </div>
 
-            <div class="profile-highlights">
-              <div class="profile-highlight">
-                <span>01</span>
-                <strong>Business context first</strong>
-                <p>I start with the stakeholder problem before choosing the tool or model.</p>
-              </div>
+    <div class="command-block">
+      <div class="command-prompt">&gt; current_project</div>
+      <div class="command-output">MindWise decision-focused analytics dissertation</div>
+    </div>
 
-              <div class="profile-highlight">
-                <span>02</span>
-                <strong>Data to decisions</strong>
-                <p>I use dashboards, modelling and analysis to support practical recommendations.</p>
-              </div>
+    <div class="command-block">
+      <div class="command-prompt">&gt; background</div>
+      <div class="command-output">Commercial experience across UK · UAE · Saudi Arabia · Pakistan</div>
+    </div>
 
-              <div class="profile-highlight">
-                <span>03</span>
-                <strong>Applied portfolio</strong>
-                <p>Projects cover SQL warehousing, BI reporting, machine learning, marketing analytics and optimisation.</p>
-              </div>
-            </div>
-
-          </div>
-        </aside>
+    <div class="command-block">
+      <div class="command-prompt">&gt; status</div>
+      <div class="command-output">Open to opportunities</div>
+    </div>
+  </div>
+</aside>
 
       </div>
     </section>
