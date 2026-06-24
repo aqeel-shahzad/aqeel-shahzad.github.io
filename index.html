@@ -277,29 +277,36 @@
       50% { box-shadow: 0 0 0 7px rgba(34,197,94,0.05); }
     }
 
-    h1 {
-      font-size: clamp(2.9rem, 6.5vw, 5.2rem);
-      line-height: 0.95;
-      letter-spacing: -0.07em;
-      font-weight: 900;
-      margin-bottom: 22px;
-    }
+   ```css
+h1 {
+  font-size: clamp(2.9rem, 6.5vw, 5.2rem);
+  line-height: 0.98;
+  letter-spacing: -0.07em;
+  font-weight: 900;
+  margin-bottom: 22px;
+}
 
-    .gradient-text {
-      background: linear-gradient(135deg, var(--accent) 0%, #b4a0ff 55%, var(--accent-2) 100%);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-    }
+.gradient-text {
+  background: linear-gradient(135deg, var(--accent) 0%, #b4a0ff 55%, var(--accent-2) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  display: inline-block;
+  padding-right: 0.05em;
+}
 
-    .hero-copy {
-      max-width: 660px;
-      color: var(--muted);
-      font-size: 1.05rem;
-      line-height: 1.72;
-      margin-bottom: 28px;
-    }
+.hero-copy {
+  max-width: 760px;
+  color: var(--muted);
+  font-size: 1.05rem;
+  line-height: 1.72;
+  margin-bottom: 28px;
+}
 
+.tool-chip[data-tool="alteryx"]:hover {
+  border-color: rgba(245,158,11,0.5);
+  background: rgba(245,158,11,0.08);
+}
     /* ─── METRICS ─── */
     .metrics {
       display: grid;
@@ -1749,192 +1756,197 @@
 
   <main id="top">
 
-    <!-- ═══════════ HERO ═══════════ -->
-    <section class="hero">
-      <div class="container hero-grid">
+```html
+<!-- ═══════════ HERO ═══════════ -->
+<section class="hero">
+  <div class="container hero-grid">
 
-        <div class="hero-main">
-          <div class="eyebrow">
-            <span class="eyebrow-dot"></span>
-            MSc Business Analytics · QUB
-          </div>
+    <div class="hero-main">
+      <div class="eyebrow">
+        <span class="eyebrow-dot"></span>
+        MSc Business Analytics · QUB
+      </div>
 
-          <h1>Commercial experience, now powered by <span class="gradient-text">analytics.</span></h1>
+      <h1>Commercial experience, now powered by <span class="gradient-text">analytics.</span></h1>
 
-          <p class="hero-copy">
-           I’m Aqeel Shahzad, an MSc Business Analytics student at Queen’s University Belfast with nearly five years of commercial, client-facing and stakeholder experience across the UK, UAE, Saudi Arabia and Pakistan. I now use SQL, Power BI, R, Python and machine learning to turn business data into practical decisions.
-          </p>
+      <p class="hero-copy">
+        I’m Aqeel Shahzad, an MSc Business Analytics student at Queen’s University Belfast with nearly five years of commercial, client-facing and stakeholder experience across the UK, UAE, Saudi Arabia and Pakistan. I now use SQL, Power BI, Python and R to turn business problems into practical, data-driven decisions.
+      </p>
 
-          <div class="button-row">
-            <a class="btn btn-primary" href="#projects">View Projects</a>
-            <a class="btn btn-soft" href="assets/Aqeel-Resume.pdf" target="_blank" rel="noreferrer">Download CV</a>
-            <a class="btn btn-soft" href="https://www.linkedin.com/in/shahzadaqeel/" target="_blank" rel="noreferrer">
-              <!-- LinkedIn icon -->
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
-              LinkedIn
-            </a>
-            <a class="btn btn-soft" href="https://github.com/aqeel-shahzad" target="_blank" rel="noreferrer">
-              <!-- GitHub icon -->
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
-              GitHub
-            </a>
-          </div>
+      <div class="button-row">
+        <a class="btn btn-primary" href="#projects">View Projects</a>
+        <a class="btn btn-soft" href="assets/Aqeel-Resume.pdf" target="_blank" rel="noreferrer">Download CV</a>
+        <a class="btn btn-soft" href="https://www.linkedin.com/in/shahzadaqeel/" target="_blank" rel="noreferrer">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+          LinkedIn
+        </a>
+        <a class="btn btn-soft" href="https://github.com/aqeel-shahzad" target="_blank" rel="noreferrer">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+          GitHub
+        </a>
+      </div>
 
-          <!-- Metric cards -->
-         <div class="metrics" aria-label="Portfolio highlights">
-  <div class="metric-card">
-    <strong>5 Years</strong>
-    <span>Commercial &amp; client-facing experience</span>
-  </div>
-  <div class="metric-card">
-    <strong>4 Countries</strong>
-    <span>Professional experience in UK, UAE, Saudi Arabia &amp; Pakistan</span>
-  </div>
-  <div class="metric-card">
-    <strong>United Kingdom</strong>
-    <span>SaaS sales experience at Tes Global, London-based EdTech</span>
-  </div>
-  <div class="metric-card">
-    <strong>5+</strong>
-    <span>Applied analytics portfolio projects</span>
-  </div>
-</div>
-
-          <!-- Tool Ribbon with logos -->
-          <div class="tool-ribbon" aria-label="Technical toolkit">
-            <span class="tool-ribbon-label">// Technical Toolkit</span>
-            <div class="tool-logos">
-
-            <!-- Python -->
-              <div class="tool-chip" data-tool="python">
-                <svg width="18" height="18" viewBox="0 0 256 255" xmlns="http://www.w3.org/2000/svg">
-                  <defs><linearGradient id="py1" x1="12%" y1="12%" x2="88%" y2="88%"><stop offset="0%" stop-color="#387EB8"/><stop offset="100%" stop-color="#366994"/></linearGradient><linearGradient id="py2" x1="12%" y1="12%" x2="88%" y2="88%"><stop offset="0%" stop-color="#FFE052"/><stop offset="100%" stop-color="#FFC331"/></linearGradient></defs>
-                  <path fill="url(#py1)" d="M126.9 0C62.4 0 66.2 27 66.2 27l.1 28h61.8v8.4H41.6S0 58.5 0 123.8s37.7 63.2 37.7 63.2h22.6v-30.4s-1.2-37.7 37.1-37.7h63.9s35.8.6 35.8-34.6V34.3S203.3 0 126.9 0zM92 19.5c6.5 0 11.7 5.2 11.7 11.7S98.5 43 92 43s-11.7-5.2-11.7-11.7S85.5 19.5 92 19.5z"/>
-                  <path fill="url(#py2)" d="M128.9 254.6c64.5 0 60.7-27 60.7-27l-.1-28h-61.8v-8.4h86.5s41.6 5 41.6-60.4-37.7-63.1-37.7-63.1h-22.6v30.4s1.2 37.7-37.1 37.7h-63.9s-35.8-.6-35.8 34.6v58.1s-5.4 26.1 70.2 26.1zm34.9-19.5c-6.5 0-11.7-5.2-11.7-11.7s5.2-11.7 11.7-11.7 11.7 5.2 11.7 11.7-5.2 11.7-11.7 11.7z"/>
-                </svg>
-                Python
-              </div>
-
-              <!-- SQL -->
-              <div class="tool-chip" data-tool="sql">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <ellipse cx="12" cy="6" rx="9" ry="3.5" fill="#F97316" opacity="0.9"/>
-                  <path d="M3 6v4c0 1.93 4.03 3.5 9 3.5s9-1.57 9-3.5V6" stroke="#F97316" stroke-width="1.5" fill="none"/>
-                  <path d="M3 10v4c0 1.93 4.03 3.5 9 3.5s9-1.57 9-3.5v-4" stroke="#F97316" stroke-width="1.5" fill="none"/>
-                  <path d="M3 14v4c0 1.93 4.03 3.5 9 3.5s9-1.57 9-3.5v-4" stroke="#F97316" stroke-width="1.5" fill="none"/>
-                </svg>
-                SQL
-              </div>
-
-               <!-- R -->
-              <div class="tool-chip" data-tool="r">
-                <svg width="18" height="18" viewBox="0 0 724 561" xmlns="http://www.w3.org/2000/svg">
-                  <defs><radialGradient id="rg1" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#CBDAEA"/><stop offset="100%" stop-color="#90B4CE"/></radialGradient></defs>
-                  <ellipse fill="url(#rg1)" cx="363" cy="281" rx="363" ry="281"/>
-                  <path fill="#1A4E83" d="M362.9 56.1c-156.9 0-284.2 86-284.2 192.1 0 76.8 60.6 143.6 149.7 176.4l-35.8 100.8c0 0 0 .1-.1.1-.1.4-.2.8-.3 1.2-.1.5.1 1 .5 1.3.3.2.7.3 1.1.2l.4-.1c.2-.1.4-.2.6-.4l89.4-76.1c25.5 5.1 52.5 7.8 80.5 7.8 156.9 0 284.2-86 284.2-192.1C648.9 142.4 519.8 56.1 362.9 56.1z"/>
-                  <path fill="#75AADB" d="M362.9 84.4c-141.3 0-255.9 77.5-255.9 173.1 0 95.6 114.6 173.1 255.9 173.1s255.9-77.5 255.9-173.1S504.2 84.4 362.9 84.4z"/>
-                  <path fill="#1A4E83" d="M362.1 232.3h-74.4v-78.8h74.4c32.3 0 58.6 17.6 58.6 39.4S394.4 232.3 362.1 232.3z"/>
-                  <path fill="#fff" d="M288.5 232.3v78.8l107.7 78.8 107.7-78.8-107.7-78.8H288.5z"/>
-                  <path fill="#1A4E83" d="M396.2 232.3l107.7 78.8H396.2z"/>
-                </svg>
-                R
-              </div>
-
-              <!-- Excel -->
-              <div class="tool-chip" data-tool="excel">
-                <svg width="18" height="18" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                  <rect x="2" y="2" width="20" height="20" rx="3" fill="#217346"/>
-                  <path d="M7 8l2.5 4L7 16h2l1.5-2.5L12 16h2l-2.5-4L14 8h-2l-1.5 2.5L9 8H7z" fill="white"/>
-                  <line x1="15" y1="8" x2="15" y2="16" stroke="white" stroke-width="1.5"/>
-                  <line x1="15" y1="16" x2="19" y2="16" stroke="white" stroke-width="1.5"/>
-                </svg>
-                Excel
-              </div>
-
-              <!-- Power BI -->
-              <div class="tool-chip" data-tool="powerbi">
-                <svg width="18" height="18" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                  <rect x="2" y="13" width="4" height="9" rx="1" fill="#F3BE2F"/>
-                  <rect x="8" y="8" width="4" height="14" rx="1" fill="#F3BE2F" opacity="0.8"/>
-                  <rect x="14" y="3" width="4" height="19" rx="1" fill="#F3BE2F" opacity="0.6"/>
-                  <rect x="20" y="6" width="2" height="16" rx="1" fill="#F3BE2F" opacity="0.4"/>
-                </svg>
-                Power BI
-              </div>
-
-              <!-- Tableau -->
-              <div class="tool-chip" data-tool="tableau">
-                <svg width="18" height="18" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                  <line x1="12" y1="2" x2="12" y2="22" stroke="#1F77B4" stroke-width="2.5" stroke-linecap="round"/>
-                  <line x1="2" y1="12" x2="22" y2="12" stroke="#1F77B4" stroke-width="2.5" stroke-linecap="round"/>
-                  <line x1="4.9" y1="4.9" x2="19.1" y2="19.1" stroke="#1F77B4" stroke-width="1.5" stroke-linecap="round" opacity="0.5"/>
-                  <line x1="19.1" y1="4.9" x2="4.9" y2="19.1" stroke="#1F77B4" stroke-width="1.5" stroke-linecap="round" opacity="0.5"/>
-                  <circle cx="12" cy="2" r="1.8" fill="#1F77B4"/>
-                  <circle cx="12" cy="22" r="1.8" fill="#1F77B4"/>
-                  <circle cx="2" cy="12" r="1.8" fill="#1F77B4"/>
-                  <circle cx="22" cy="12" r="1.8" fill="#1F77B4"/>
-                </svg>
-                Tableau
-              </div>
-
-
-              <!-- GitHub -->
-              <div class="tool-chip" data-tool="github">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.02 10.02 0 0 0 22 12.017C22 6.484 17.522 2 12 2z"/>
-                </svg>
-                GitHub
-              </div>
-
-            </div>
-          </div>
+      <div class="metrics" aria-label="Portfolio highlights">
+        <div class="metric-card">
+          <strong>5 Years</strong>
+          <span>Commercial &amp; client-facing experience</span>
         </div>
 
-<!-- Right panel -->
-<aside class="hero-card hero-command-card" aria-label="Portfolio profile card">
-  <div class="command-card-top">
-    <div class="command-label">aqeel@portfolio:~</div>
-    <div class="command-dots" aria-hidden="true">
-      <span></span>
-      <span></span>
-      <span></span>
-    </div>
-  </div>
+        <div class="metric-card">
+          <strong>4 Countries</strong>
+          <span>Professional experience in UK, UAE, Saudi Arabia &amp; Pakistan</span>
+        </div>
 
-  <div class="command-avatar-wrap">
-    <img src="assets/aqeel-avatar.png" alt="Illustrated avatar of Aqeel Shahzad" class="command-avatar">
-  </div>
+        <div class="metric-card">
+          <strong>United Kingdom</strong>
+          <span>SaaS sales experience at Tes Global, London-based EdTech</span>
+        </div>
 
-  <div class="command-body">
-    <div class="command-block">
-      <div class="command-prompt">&gt; role_target</div>
-      <div class="command-output">Business Analyst · Data Analyst · BI Analyst</div>
-    </div>
-
-    <div class="command-block">
-      <div class="command-prompt">&gt; toolkit</div>
-      <div class="command-output">SQL · Power BI · Python · R · Excel</div>
-    </div>
-
-    <div class="command-block">
-      <div class="command-prompt">&gt; current_project</div>
-      <div class="command-output">MindWise decision-focused analytics dissertation</div>
-    </div>
-
-    <div class="command-block">
-      <div class="command-prompt">&gt; background</div>
-      <div class="command-output">Commercial experience across UK · UAE · Saudi Arabia · Pakistan</div>
-    </div>
-
-    <div class="command-block">
-      <div class="command-prompt">&gt; status</div>
-      <div class="command-output">Open to opportunities</div>
-    </div>
-  </div>
-</aside>
-
+        <div class="metric-card">
+          <strong>5+</strong>
+          <span>Applied analytics portfolio projects</span>
+        </div>
       </div>
-    </section>
+
+      <div class="tool-ribbon" aria-label="Technical toolkit">
+        <span class="tool-ribbon-label">// Technical Toolkit</span>
+
+        <div class="tool-logos">
+
+          <div class="tool-chip" data-tool="python">
+            <svg width="18" height="18" viewBox="0 0 256 255" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <linearGradient id="py1" x1="12%" y1="12%" x2="88%" y2="88%">
+                  <stop offset="0%" stop-color="#387EB8"/>
+                  <stop offset="100%" stop-color="#366994"/>
+                </linearGradient>
+                <linearGradient id="py2" x1="12%" y1="12%" x2="88%" y2="88%">
+                  <stop offset="0%" stop-color="#FFE052"/>
+                  <stop offset="100%" stop-color="#FFC331"/>
+                </linearGradient>
+              </defs>
+              <path fill="url(#py1)" d="M126.9 0C62.4 0 66.2 27 66.2 27l.1 28h61.8v8.4H41.6S0 58.5 0 123.8s37.7 63.2 37.7 63.2h22.6v-30.4s-1.2-37.7 37.1-37.7h63.9s35.8.6 35.8-34.6V34.3S203.3 0 126.9 0zM92 19.5c6.5 0 11.7 5.2 11.7 11.7S98.5 43 92 43s-11.7-5.2-11.7-11.7S85.5 19.5 92 19.5z"/>
+              <path fill="url(#py2)" d="M128.9 254.6c64.5 0 60.7-27 60.7-27l-.1-28h-61.8v-8.4h86.5s41.6 5 41.6-60.4-37.7-63.1-37.7-63.1h-22.6v30.4s1.2 37.7-37.1 37.7h-63.9s-35.8-.6-35.8 34.6v58.1s-5.4 26.1 70.2 26.1zm34.9-19.5c-6.5 0-11.7-5.2-11.7-11.7s5.2-11.7 11.7-11.7 11.7 5.2 11.7 11.7-5.2 11.7-11.7 11.7z"/>
+            </svg>
+            Python
+          </div>
+
+          <div class="tool-chip" data-tool="sql">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <ellipse cx="12" cy="6" rx="9" ry="3.5" fill="#F97316" opacity="0.9"/>
+              <path d="M3 6v4c0 1.93 4.03 3.5 9 3.5s9-1.57 9-3.5V6" stroke="#F97316" stroke-width="1.5" fill="none"/>
+              <path d="M3 10v4c0 1.93 4.03 3.5 9 3.5s9-1.57 9-3.5v-4" stroke="#F97316" stroke-width="1.5" fill="none"/>
+              <path d="M3 14v4c0 1.93 4.03 3.5 9 3.5s9-1.57 9-3.5v-4" stroke="#F97316" stroke-width="1.5" fill="none"/>
+            </svg>
+            SQL
+          </div>
+
+          <div class="tool-chip" data-tool="r">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+              <text x="2" y="17" font-size="14" font-weight="900" fill="#2482BA" font-family="serif">R</text>
+            </svg>
+            R
+          </div>
+
+          <div class="tool-chip" data-tool="excel">
+            <svg width="18" height="18" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <rect x="2" y="2" width="20" height="20" rx="3" fill="#217346"/>
+              <path d="M7 8l2.5 4L7 16h2l1.5-2.5L12 16h2l-2.5-4L14 8h-2l-1.5 2.5L9 8H7z" fill="white"/>
+              <line x1="15" y1="8" x2="15" y2="16" stroke="white" stroke-width="1.5"/>
+              <line x1="15" y1="16" x2="19" y2="16" stroke="white" stroke-width="1.5"/>
+            </svg>
+            Excel
+          </div>
+
+          <div class="tool-chip" data-tool="alteryx">
+            <svg width="18" height="18" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none">
+              <circle cx="6" cy="18" r="2.2" fill="#F59E0B"/>
+              <circle cx="12" cy="12" r="2.2" fill="#F59E0B"/>
+              <circle cx="18" cy="6" r="2.2" fill="#F59E0B"/>
+              <path d="M7.6 16.5L10.4 13.5" stroke="#F59E0B" stroke-width="1.8" stroke-linecap="round"/>
+              <path d="M13.6 10.5L16.4 7.5" stroke="#F59E0B" stroke-width="1.8" stroke-linecap="round"/>
+            </svg>
+            Alteryx
+          </div>
+
+          <div class="tool-chip" data-tool="powerbi">
+            <svg width="18" height="18" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <rect x="2" y="13" width="4" height="9" rx="1" fill="#F3BE2F"/>
+              <rect x="8" y="8" width="4" height="14" rx="1" fill="#F3BE2F" opacity="0.8"/>
+              <rect x="14" y="3" width="4" height="19" rx="1" fill="#F3BE2F" opacity="0.6"/>
+              <rect x="20" y="6" width="2" height="16" rx="1" fill="#F3BE2F" opacity="0.4"/>
+            </svg>
+            Power BI
+          </div>
+
+          <div class="tool-chip" data-tool="tableau">
+            <svg width="18" height="18" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <line x1="12" y1="2" x2="12" y2="22" stroke="#1F77B4" stroke-width="2.5" stroke-linecap="round"/>
+              <line x1="2" y1="12" x2="22" y2="12" stroke="#1F77B4" stroke-width="2.5" stroke-linecap="round"/>
+              <circle cx="12" cy="2" r="1.8" fill="#1F77B4"/>
+              <circle cx="12" cy="22" r="1.8" fill="#1F77B4"/>
+              <circle cx="2" cy="12" r="1.8" fill="#1F77B4"/>
+              <circle cx="22" cy="12" r="1.8" fill="#1F77B4"/>
+            </svg>
+            Tableau
+          </div>
+
+          <div class="tool-chip" data-tool="github">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.02 10.02 0 0 0 22 12.017C22 6.484 17.522 2 12 2z"/>
+            </svg>
+            GitHub
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- Right panel -->
+    <aside class="hero-card hero-command-card" aria-label="Portfolio profile card">
+      <div class="command-card-top">
+        <div class="command-label">aqeel@portfolio:~</div>
+        <div class="command-dots" aria-hidden="true">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+
+      <div class="command-avatar-wrap">
+        <img src="assets/aqeel-avatar.png" alt="Illustrated avatar of Aqeel Shahzad" class="command-avatar">
+      </div>
+
+      <div class="command-body">
+        <div class="command-block">
+          <div class="command-prompt">&gt; role_target</div>
+          <div class="command-output">Business Analyst · BI Analyst · Data Analyst</div>
+        </div>
+
+        <div class="command-block">
+          <div class="command-prompt">&gt; toolkit</div>
+          <div class="command-output">SQL · Power BI · Python · R · Excel · Alteryx</div>
+        </div>
+
+        <div class="command-block">
+          <div class="command-prompt">&gt; current_project</div>
+          <div class="command-output">MindWise dissertation</div>
+        </div>
+
+        <div class="command-block">
+          <div class="command-prompt">&gt; background</div>
+          <div class="command-output">Commercial experience across UK · UAE · Saudi Arabia · Pakistan</div>
+        </div>
+
+        <div class="command-block">
+          <div class="command-prompt">&gt; status</div>
+          <div class="command-output">Open to opportunities</div>
+        </div>
+      </div>
+    </aside>
+
+  </div>
+</section>
 
     <!-- ═══════════ ABOUT ═══════════ -->
     <section id="about" class="section about-section">
