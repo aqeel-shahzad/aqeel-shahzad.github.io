@@ -1196,6 +1196,41 @@ h1 {
   pointer-events: none;
 }
 
+/* Better fit for images that should not be cropped */
+.project-visual-contain {
+  display: grid;
+  place-items: center;
+  background:
+    radial-gradient(circle at 50% 35%, rgba(58,180,245,0.08), transparent 38%),
+    linear-gradient(180deg, #020617 0%, #030712 100%);
+}
+
+.project-visual-contain img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  transform: none;
+}
+
+.project-card:hover .project-visual-contain img {
+  transform: scale(1.025);
+  filter: brightness(1.06) contrast(1.03);
+}
+
+/* SQL warehouse banner needs slightly more room */
+.project-visual-sql {
+  height: 300px;
+  padding: 10px;
+}
+
+@media (max-width: 680px) {
+  .project-visual-sql {
+    height: 220px;
+    padding: 6px;
+  }
+}
+
 /* Featured content layout */
 .project-featured-content {
   display: grid;
@@ -2568,10 +2603,9 @@ h1 {
 
       <!-- PROJECT 01: FEATURED -->
       <article class="project-card project-featured">
-        <div class="project-visual">
-          <img src="assets/projects/project-01-airline-customer-recommendation.png" alt="Airline Customer Recommendation Analytics project visual">
-        </div>
-
+      <div class="project-visual project-visual-contain project-visual-sql">
+        <img src="assets/projects/project-05-sql-data-warehouse.png?v=3" alt="SQL Data Warehouse project visual">
+      </div>
         <div class="project-content project-featured-content">
           <div class="project-intro">
             <div class="project-type">Featured case study · Machine learning · NLP</div>
