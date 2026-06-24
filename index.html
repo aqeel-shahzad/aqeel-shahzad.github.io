@@ -772,7 +772,7 @@ h1 {
   background:
     radial-gradient(circle at 10% 20%, rgba(58,180,245,0.10), transparent 28%),
     radial-gradient(circle at 88% 18%, rgba(124,90,240,0.10), transparent 30%),
-    radial-gradient(circle at 50% 100%, rgba(58,180,245,0.05), transparent 24%);
+    radial-gradient(circle at 50% 100%, rgba(34,197,94,0.055), transparent 24%);
   pointer-events: none;
 }
 
@@ -783,43 +783,55 @@ h1 {
 
 .about-grid {
   display: grid;
-  grid-template-columns: 1.02fr 0.98fr;
+  grid-template-columns: 1.04fr 0.96fr;
   gap: 22px;
   align-items: stretch;
 }
 
-.about-main-card,
-.about-terminal-card {
+.about-origin-card,
+.about-thinking-card {
   position: relative;
   overflow: hidden;
   border-radius: var(--radius-lg);
-  border: 1px solid rgba(255,255,255,0.07);
+  border: 1px solid rgba(255,255,255,0.075);
   box-shadow: var(--shadow-sm);
 }
 
-.about-main-card {
+.about-origin-card {
   padding: 32px;
   background:
-    linear-gradient(135deg, rgba(58,180,245,0.08), rgba(124,90,240,0.08)),
+    linear-gradient(135deg, rgba(58,180,245,0.085), rgba(124,90,240,0.075)),
     var(--surface);
   border-color: rgba(58,180,245,0.15);
 }
 
-.about-main-card::before,
-.about-terminal-card::before {
+.about-origin-card::before,
+.about-thinking-card::before {
   content: '';
   position: absolute;
   inset: 0;
   background-image:
-    linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+    linear-gradient(rgba(255,255,255,0.032) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.032) 1px, transparent 1px);
   background-size: 30px 30px;
-  mask-image: radial-gradient(ellipse at 18% 10%, rgba(0,0,0,0.85), transparent 75%);
+  mask-image: radial-gradient(ellipse at 20% 10%, rgba(0,0,0,0.86), transparent 74%);
   pointer-events: none;
 }
 
-.about-main-inner,
-.about-terminal-inner {
+.about-origin-card::after {
+  content: '';
+  position: absolute;
+  right: -90px;
+  bottom: -100px;
+  width: 270px;
+  height: 270px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(124,90,240,0.20), transparent 68%);
+  pointer-events: none;
+}
+
+.about-origin-inner,
+.about-thinking-inner {
   position: relative;
   z-index: 1;
 }
@@ -850,140 +862,196 @@ h1 {
 }
 
 .about-lead {
-  font-size: clamp(1.6rem, 2.5vw, 2.2rem);
-  line-height: 1.08;
-  letter-spacing: -0.055em;
+  font-size: clamp(1.65rem, 2.7vw, 2.35rem);
+  line-height: 1.05;
+  letter-spacing: -0.06em;
   font-weight: 900;
   margin-bottom: 18px;
-  max-width: 640px;
+  max-width: 680px;
 }
 
-.about-copy {
+.about-story {
   display: grid;
   gap: 14px;
   margin-bottom: 24px;
 }
 
-.about-copy p {
+.about-story p {
   color: var(--muted);
-  font-size: 0.97rem;
-  line-height: 1.75;
-  max-width: 720px;
+  font-size: 0.96rem;
+  line-height: 1.72;
+  max-width: 760px;
 }
 
-.about-value-grid {
+.about-story strong {
+  color: var(--text);
+  font-weight: 800;
+}
+
+.about-signal-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 12px;
+  margin-top: 22px;
 }
 
-.about-value-card {
+.about-signal-card {
+  position: relative;
+  overflow: hidden;
   padding: 18px;
   border-radius: 18px;
-  border: 1px solid rgba(255,255,255,0.07);
+  border: 1px solid rgba(255,255,255,0.075);
   background: rgba(255,255,255,0.035);
   transition: transform 0.22s ease, border-color 0.22s ease, background 0.22s ease;
 }
 
-.about-value-card:hover {
+.about-signal-card:hover {
   transform: translateY(-3px);
-  border-color: rgba(58,180,245,0.22);
+  border-color: rgba(58,180,245,0.24);
   background: rgba(58,180,245,0.05);
 }
 
-.about-value-card h3 {
+.about-signal-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 18px;
+  right: 18px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(58,180,245,0.45), transparent);
+}
+
+.signal-kicker {
+  color: var(--accent);
+  font-family: var(--mono);
+  font-size: 0.66rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin-bottom: 9px;
+}
+
+.about-signal-card h3 {
   font-size: 0.95rem;
+  line-height: 1.25;
+  letter-spacing: -0.025em;
   margin-bottom: 8px;
-  letter-spacing: -0.02em;
 }
 
-.about-value-card p {
+.about-signal-card p {
   color: var(--muted);
-  font-size: 0.86rem;
-  line-height: 1.6;
+  font-size: 0.83rem;
+  line-height: 1.55;
 }
 
-/* RIGHT SIDE TERMINAL CARD */
-.about-terminal-card {
+.about-realisation {
+  margin-top: 18px;
+  padding: 18px 20px;
+  border-radius: 22px;
+  border: 1px solid rgba(34,197,94,0.18);
+  background:
+    linear-gradient(135deg, rgba(34,197,94,0.08), rgba(58,180,245,0.06)),
+    rgba(255,255,255,0.025);
+}
+
+.about-realisation-kicker {
+  color: #bbf7d0;
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin-bottom: 7px;
+}
+
+.about-realisation p {
+  color: var(--muted);
+  font-size: 0.9rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.about-realisation strong {
+  color: var(--text);
+}
+
+/* Right side terminal */
+.about-thinking-card {
   padding: 0;
   background:
-    linear-gradient(180deg, rgba(255,255,255,0.042), rgba(255,255,255,0.018)),
+    linear-gradient(180deg, rgba(255,255,255,0.045), rgba(255,255,255,0.018)),
     var(--surface);
 }
 
-.terminal-topbar {
+.thinking-topbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 16px;
   padding: 16px 20px;
-  border-bottom: 1px solid rgba(255,255,255,0.07);
-  background: rgba(255,255,255,0.02);
+  border-bottom: 1px solid rgba(255,255,255,0.075);
+  background: rgba(255,255,255,0.025);
 }
 
-.terminal-title {
+.thinking-title {
   color: var(--accent);
   font-family: var(--mono);
   font-size: 0.74rem;
   letter-spacing: 0.12em;
 }
 
-.terminal-dots {
+.thinking-dots {
   display: flex;
   gap: 7px;
 }
 
-.terminal-dots span {
+.thinking-dots span {
   width: 9px;
   height: 9px;
   border-radius: 50%;
 }
 
-.terminal-dots span:nth-child(1) { background: #38bdf8; }
-.terminal-dots span:nth-child(2) { background: #8b5cf6; }
-.terminal-dots span:nth-child(3) { background: #22c55e; }
+.thinking-dots span:nth-child(1) { background: #38bdf8; }
+.thinking-dots span:nth-child(2) { background: #8b5cf6; }
+.thinking-dots span:nth-child(3) { background: #22c55e; }
 
-.terminal-body {
+.thinking-body {
   padding: 22px;
 }
 
-.terminal-command {
+.thinking-command {
   margin-bottom: 18px;
   padding: 14px 16px;
   border-radius: 16px;
   border: 1px solid rgba(58,180,245,0.14);
   background: rgba(58,180,245,0.05);
   font-family: var(--mono);
-  font-size: 0.78rem;
+  font-size: 0.77rem;
   color: #d8f2ff;
   line-height: 1.7;
 }
 
-.terminal-command .prompt {
+.thinking-command .prompt {
   color: var(--accent);
 }
 
-.pipeline-shell {
+.thinking-pipeline {
   position: relative;
   display: grid;
   gap: 14px;
-  margin-bottom: 18px;
 }
 
-.pipeline-shell::before {
+.thinking-pipeline::before {
   content: '';
   position: absolute;
   left: 21px;
   top: 12px;
   bottom: 12px;
   width: 2px;
-  background: linear-gradient(180deg, rgba(58,180,245,0.65), rgba(124,90,240,0.65));
+  background: linear-gradient(180deg, rgba(58,180,245,0.68), rgba(124,90,240,0.68));
   box-shadow: 0 0 16px rgba(58,180,245,0.25);
 }
 
-.pipeline-step {
+.thinking-step {
   position: relative;
-  margin-left: 0;
   padding: 16px 16px 16px 52px;
   border-radius: 18px;
   border: 1px solid rgba(255,255,255,0.075);
@@ -991,13 +1059,13 @@ h1 {
   transition: transform 0.22s ease, border-color 0.22s ease, background 0.22s ease;
 }
 
-.pipeline-step:hover {
+.thinking-step:hover {
   transform: translateY(-2px);
   border-color: rgba(58,180,245,0.22);
-  background: rgba(58,180,245,0.04);
+  background: rgba(58,180,245,0.045);
 }
 
-.pipeline-node {
+.thinking-node {
   position: absolute;
   left: 12px;
   top: 18px;
@@ -1010,11 +1078,11 @@ h1 {
   color: #fff;
   font-family: var(--mono);
   font-size: 0.62rem;
-  font-weight: 700;
+  font-weight: 800;
   box-shadow: 0 0 0 6px rgba(58,180,245,0.09), 0 0 18px rgba(58,180,245,0.22);
 }
 
-.pipeline-meta {
+.thinking-meta {
   display: inline-block;
   margin-bottom: 6px;
   color: var(--accent);
@@ -1024,49 +1092,54 @@ h1 {
   text-transform: uppercase;
 }
 
-.pipeline-step h3 {
+.thinking-step h3 {
   font-size: 0.96rem;
   margin-bottom: 6px;
   letter-spacing: -0.02em;
 }
 
-.pipeline-step p {
+.thinking-step p {
   color: var(--muted);
   font-size: 0.86rem;
   line-height: 1.55;
   margin-bottom: 8px;
 }
 
-.pipeline-tools {
+.thinking-tools {
   color: #cfd8f6;
   font-family: var(--mono);
   font-size: 0.7rem;
   line-height: 1.5;
 }
 
-.terminal-footer {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 12px;
+.thinking-result {
+  margin-top: 18px;
+  padding: 16px 18px;
+  border-radius: 18px;
+  border: 1px solid rgba(34,197,94,0.18);
+  background:
+    linear-gradient(135deg, rgba(34,197,94,0.08), rgba(58,180,245,0.055)),
+    rgba(255,255,255,0.025);
 }
 
-.terminal-note {
-  padding: 16px;
-  border-radius: 16px;
-  border: 1px solid rgba(255,255,255,0.07);
-  background: rgba(255,255,255,0.03);
+.thinking-result .result-kicker {
+  color: #bbf7d0;
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin-bottom: 7px;
 }
 
-.terminal-note h3 {
-  font-size: 0.88rem;
-  margin-bottom: 8px;
-  letter-spacing: -0.02em;
-}
-
-.terminal-note p {
+.thinking-result p {
   color: var(--muted);
-  font-size: 0.84rem;
-  line-height: 1.55;
+  font-size: 0.88rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.thinking-result strong {
+  color: var(--text);
 }
 
 @media (max-width: 1050px) {
@@ -1074,21 +1147,17 @@ h1 {
     grid-template-columns: 1fr;
   }
 
-  .about-value-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .terminal-footer {
+  .about-signal-grid {
     grid-template-columns: 1fr;
   }
 }
 
 @media (max-width: 680px) {
-  .about-main-card {
+  .about-origin-card {
     padding: 22px;
   }
 
-  .terminal-body {
+  .thinking-body {
     padding: 18px;
   }
 }
@@ -2188,139 +2257,145 @@ h1 {
     <div class="section-header">
       <div>
         <div class="section-kicker">// about</div>
-        <h2 class="section-title">From commercial insight to analytics impact.</h2>
+        <h2 class="section-title">Sales rep with an analyst brain.</h2>
       </div>
     </div>
 
     <div class="about-grid">
 
-      <!-- LEFT: STORY -->
-      <article class="about-main-card">
-        <div class="about-main-inner">
+      <!-- LEFT: ABOUT ME / ORIGIN STORY -->
+      <article class="about-origin-card">
+        <div class="about-origin-inner">
           <div class="about-badge">
             <span></span>
             About me
           </div>
 
           <p class="about-lead">
-            I bring business context into analytics.
+            I came into analytics through the business side.
           </p>
 
-          <div class="about-copy">
+          <div class="about-story">
             <p>
-              My background in commercial and client-facing roles means I naturally start with the business problem, stakeholder need, and decision context before jumping into tools or models.
+              Before analytics became the degree, it was already how I worked.
             </p>
 
             <p>
-              I have worked with CRM data, sales activity, KPI reporting, dashboards, and performance tracking, which shaped how I think about analytics: not as isolated analysis, but as a way to support better decisions.
+              At Tes Global, I worked in commercial and client-facing sales across EMEA, where pipeline, outreach, market fit and stakeholder conversations were part of the job every day. I was recognised as a <strong>top-performing SDR for FY24 by number of opportunities created</strong>, but the part that shaped my direction was how much I relied on data to improve the way I worked.
             </p>
 
             <p>
-              That is what draws me to analytics roles where data, reporting, and structured problem-solving can improve performance, clarify priorities, and help teams act with confidence.
+              I built dashboards for the EMEA region to understand lead sources, opportunity performance and success rates. I also mapped schools using market signals such as fee structure, region and fit, helping make outreach more focused and practical.
+            </p>
+
+            <p>
+              That experience showed me that analytics is not just about charts, code or models. It is about deciding where effort should go, what is working, and what action should come next.
             </p>
           </div>
 
-          <div class="about-value-grid">
-            <div class="about-value-card">
-              <h3>Commercial perspective</h3>
+          <div class="about-signal-grid">
+            <div class="about-signal-card">
+              <div class="signal-kicker">Signal 01</div>
+              <h3>Top SDR FY24</h3>
               <p>
-                I understand revenue, pipeline, customer activity, and reporting from a practical business angle.
+                Recognised by number of opportunities created.
               </p>
             </div>
 
-            <div class="about-value-card">
-              <h3>Stakeholder thinking</h3>
+            <div class="about-signal-card">
+              <div class="signal-kicker">Signal 02</div>
+              <h3>EMEA dashboards</h3>
               <p>
-                I focus on clear communication, relevant insight, and outputs people can actually use.
+                Tracked lead sources, opportunity flow and success rates.
               </p>
             </div>
 
-            <div class="about-value-card">
-              <h3>Applied analytics</h3>
+            <div class="about-signal-card">
+              <div class="signal-kicker">Signal 03</div>
+              <h3>Market mapping</h3>
               <p>
-                I use data to move toward useful outputs such as dashboards, reports, and decision support.
+                Used school fee structure, region and fit to support targeting.
               </p>
             </div>
+          </div>
+
+          <div class="about-realisation">
+            <div class="about-realisation-kicker">Realisation</div>
+            <p>
+              <strong>Analytics was already part of how I worked.</strong> The MSc gave me the technical depth to take it further.
+            </p>
           </div>
         </div>
       </article>
 
-      <!-- RIGHT: TERMINAL VISUAL -->
-      <aside class="about-terminal-card">
-        <div class="about-terminal-inner">
-          <div class="terminal-topbar">
-            <div class="terminal-title">analytics-pipeline.sh</div>
-            <div class="terminal-dots" aria-hidden="true">
+      <!-- RIGHT: ANALYTICAL THINKING -->
+      <aside class="about-thinking-card">
+        <div class="about-thinking-inner">
+          <div class="thinking-topbar">
+            <div class="thinking-title">analytical-thinking.sh</div>
+            <div class="thinking-dots" aria-hidden="true">
               <span></span>
               <span></span>
               <span></span>
             </div>
           </div>
 
-          <div class="terminal-body">
-            <div class="terminal-command">
-              <span class="prompt">$</span> run_workflow --input business_problem --output decision_support<br>
+          <div class="thinking-body">
+            <div class="thinking-command">
+              <span class="prompt">$</span> run sales_to_analytics_mindset<br>
+              <span class="prompt">input:</span> commercial experience<br>
+              <span class="prompt">output:</span> decision-ready analytics<br>
               <span class="prompt">status:</span> active
             </div>
 
-            <div class="pipeline-shell">
-              <div class="pipeline-step">
-                <div class="pipeline-node">01</div>
-                <div class="pipeline-meta">Input</div>
-                <h3>Business question</h3>
+            <div class="thinking-pipeline">
+              <div class="thinking-step">
+                <div class="thinking-node">01</div>
+                <div class="thinking-meta">detect_signal</div>
+                <h3>Where are opportunities coming from?</h3>
                 <p>
-                  Start with the stakeholder need, the problem to solve, and the decision that needs support.
+                  Understand the signals behind pipeline movement, market response and lead sources.
                 </p>
-                <div class="pipeline-tools">Context · KPIs · Stakeholders · Objectives</div>
+                <div class="thinking-tools">Lead sources · Market response · Pipeline movement</div>
               </div>
 
-              <div class="pipeline-step">
-                <div class="pipeline-node">02</div>
-                <div class="pipeline-meta">Prepare</div>
-                <h3>Structure the data</h3>
+              <div class="thinking-step">
+                <div class="thinking-node">02</div>
+                <div class="thinking-meta">map_market</div>
+                <h3>Which segments are worth targeting?</h3>
                 <p>
-                  Clean, organise, validate, and shape data so the analysis is reliable and decision-ready.
+                  Use market context to decide where outreach should be focused and why.
                 </p>
-                <div class="pipeline-tools">SQL · Excel · Data Cleaning · Validation</div>
+                <div class="thinking-tools">School fees · Region · Fit · Outreach priority</div>
               </div>
 
-              <div class="pipeline-step">
-                <div class="pipeline-node">03</div>
-                <div class="pipeline-meta">Analyse</div>
-                <h3>Generate insight</h3>
+              <div class="thinking-step">
+                <div class="thinking-node">03</div>
+                <div class="thinking-meta">track_performance</div>
+                <h3>What is working, what is not, and why?</h3>
                 <p>
-                  Use reporting, dashboards, and analytical methods to identify patterns, opportunities, and risks.
+                  Monitor performance patterns to understand success rates and improve future decisions.
                 </p>
-                <div class="pipeline-tools">Power BI · Python · R · Reporting</div>
+                <div class="thinking-tools">Opportunity volume · Conversion · Success rate</div>
               </div>
 
-              <div class="pipeline-step">
-                <div class="pipeline-node">04</div>
-                <div class="pipeline-meta">Output</div>
-                <h3>Support action</h3>
+              <div class="thinking-step">
+                <div class="thinking-node">04</div>
+                <div class="thinking-meta">recommend_action</div>
+                <h3>Where should time and effort go next?</h3>
                 <p>
-                  Translate findings into practical recommendations that help teams make clearer decisions.
+                  Translate the analysis into clear actions that help teams focus on higher-potential opportunities.
                 </p>
-                <div class="pipeline-tools">Decision Support · Communication · Business Action</div>
-              </div>
-            </div>
-
-            <div class="terminal-footer">
-              <div class="terminal-note">
-                <h3>Where I add value</h3>
-                <p>
-                  Customer and sales insight, KPI-driven reporting, business intelligence, and structured problem-solving.
-                </p>
-              </div>
-
-              <div class="terminal-note">
-                <h3>Working style</h3>
-                <p>
-                  Clear, practical, and decision-focused — with an emphasis on turning analysis into something useful.
-                </p>
+                <div class="thinking-tools">Focus areas · Stakeholder insight · Next action</div>
               </div>
             </div>
 
+            <div class="thinking-result">
+              <div class="result-kicker">Result</div>
+              <p>
+                <strong>Business context translated into decision-ready analytics.</strong>
+              </p>
+            </div>
           </div>
         </div>
       </aside>
