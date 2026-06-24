@@ -2432,6 +2432,8 @@ h1 {
       }
     }
 
+  
+
     /* ─── FINAL CERTIFICATIONS LAYOUT FIX ─── */
     #certifications {
       width: 100%;
@@ -2474,6 +2476,11 @@ h1 {
       width: 100%;
     }
 
+    #certifications .cert-extra {
+      width: 100%;
+      margin-top: 18px;
+    }
+
     @media (max-width: 1100px) {
       #certifications .cert-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -2485,12 +2492,12 @@ h1 {
         width: min(100% - 24px, var(--max-width));
       }
 
-      #certifications .certifications-title {
-        font-size: clamp(2.6rem, 13vw, 4.2rem);
-      }
-
       #certifications .cert-grid {
         grid-template-columns: 1fr;
+      }
+
+      #certifications .certifications-title {
+        font-size: clamp(2.6rem, 13vw, 4.2rem);
       }
     }
 
@@ -3174,7 +3181,6 @@ h1 {
 <!-- ═══════════ CERTIFICATIONS ═══════════ -->
 <section id="certifications" class="section certifications-section">
   <div class="container">
-
     <div class="section-header certifications-header-clean">
       <div>
         <div class="section-kicker">// learning</div>
@@ -3224,7 +3230,7 @@ h1 {
 
       <article class="cert-card">
         <div class="cert-meta">Data Privacy · DataCamp</div>
-        <h3>GDPR &amp; Data Privacy Fundamentals Certificate</h3>
+        <h3>GDPR & Data Privacy Fundamentals Certificate</h3>
         <p>
           Completed DataCamp training in GDPR and data privacy fundamentals, supporting responsible handling of personal, customer and organisational data in analytics work.
         </p>
@@ -3248,7 +3254,7 @@ h1 {
 
   </div>
 </section>
-
+        
 <!-- ═══════════ ANALYTICS TOOLKIT ═══════════ -->
 <section id="skills" class="section skills-section">
   <div class="container">
