@@ -1987,6 +1987,34 @@ h1 {
     padding: 22px;
   }
 }
+/* Certifications title upgrade */
+.certifications-header-clean {
+  display: block;
+  margin-bottom: 34px;
+}
+
+.certifications-title {
+  max-width: 980px;
+  font-size: clamp(3rem, 5.8vw, 5.6rem);
+  line-height: 0.95;
+  letter-spacing: -0.075em;
+  font-weight: 900;
+}
+
+.certifications-title .gradient-text {
+  background: linear-gradient(135deg, var(--accent) 0%, #8fb3ff 35%, #a78bfa 70%, var(--accent-2) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  display: inline-block;
+  padding-right: 0.04em;
+}
+
+@media (max-width: 680px) {
+  .certifications-title {
+    font-size: clamp(2.6rem, 13vw, 4.2rem);
+  }
+}    
 /* ─── ANALYTICS TOOLKIT IN ACTION ─── */
 .skills-section {
   position: relative;
@@ -2618,12 +2646,14 @@ h1 {
 <!-- ═══════════ ABOUT ═══════════ -->
 <section id="about" class="section about-section">
   <div class="container">
-    <div class="section-header">
-      <div>
-        <div class="section-kicker">// about</div>
-        <h2 class="section-title about-title"> Sales rep with an <span class="gradient-text">analyst</span> brain. </h2>
-      </div>
-    </div>
+   <div class="section-header certifications-header-clean">
+  <div>
+    <div class="section-kicker">// learning</div>
+    <h2 class="section-title certifications-title">
+      <span class="gradient-text">Certifications</span> &amp; continuous learning.
+    </h2>
+  </div>
+</div>
 
     <div class="about-grid">
 
