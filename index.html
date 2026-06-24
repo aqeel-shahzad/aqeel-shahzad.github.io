@@ -2325,6 +2325,85 @@ h1 {
       .contact-panel { padding: 28px; }
       .about-stats { grid-template-columns: repeat(2, 1fr); }
     }
+
+    /* ─── FINAL STABILITY FIXES ─── */
+    #achievements {
+      width: 100%;
+    }
+
+    #achievements .container {
+      width: min(var(--max-width), calc(100% - 40px));
+      max-width: var(--max-width);
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    #achievements .achievements-header-clean {
+      display: block;
+      width: 100%;
+      margin-bottom: 34px;
+    }
+
+    #achievements .achievement-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+      gap: 20px;
+      align-items: stretch;
+      width: 100%;
+      max-width: none;
+    }
+
+    #achievements .achievement-hero,
+    #achievements .achievement-timeline {
+      min-width: 0;
+      width: 100%;
+    }
+
+    #achievements .achievement-timeline {
+      display: grid;
+      gap: 14px;
+    }
+
+    .project-card .project-visual-sql {
+      height: 280px;
+      padding: 14px;
+      display: grid;
+      place-items: center;
+      background:
+        radial-gradient(circle at 50% 45%, rgba(58,180,245,0.10), transparent 42%),
+        linear-gradient(180deg, #020617 0%, #030712 100%);
+    }
+
+    .project-card .project-visual-sql img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      object-position: center;
+      transform: none;
+    }
+
+    .project-card:hover .project-visual-sql img {
+      transform: scale(1.025);
+      filter: brightness(1.06) contrast(1.04);
+    }
+
+    @media (max-width: 1000px) {
+      #achievements .achievement-layout {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 680px) {
+      #achievements .container {
+        width: min(100% - 24px, var(--max-width));
+      }
+
+      .project-card .project-visual-sql {
+        height: 220px;
+        padding: 10px;
+      }
+    }
+
   </style>
 </head>
 
@@ -2767,7 +2846,7 @@ h1 {
           </div>
 
           <div class="project-actions">
-            <a class="text-link" href="https://github.com/aqeel-shahzad/coffee-marketing-analytics" target="_blank" rel="noreferrer">View repository →</a>
+            <a class="text-link" href="https://github.com/aqeel-shahzad/marketing-analytics-coffee-strategy" target="_blank" rel="noreferrer">View repository →</a>
             <a class="text-link" href="https://github.com/aqeel-shahzad/marketing-analytics-coffee-strategy/blob/main/report/Coffee-Marketing-Analytics-Portfolio-Case-Study.pdf" target="_blank" rel="noreferrer">View report →</a>
           </div>
         </div>
@@ -2881,54 +2960,55 @@ h1 {
 <!-- ═══════════ ACHIEVEMENTS ═══════════ -->
 <section id="achievements" class="section achievements-section">
   <div class="container">
-    <div class="section-header">
+
+    <div class="section-header achievements-header-clean">
       <div>
-<div class="section-header achievements-header-clean">
-  <div>
-    <div class="section-kicker">// recognition</div>
-    <h2 class="section-title achievements-title">
-      <span class="gradient-text">Achievements</span> &amp; current work.
-    </h2>
-  </div>
-</div>
+        <div class="section-kicker">// recognition</div>
+        <h2 class="section-title achievements-title">
+          <span class="gradient-text">Achievements</span> &amp; current work.
+        </h2>
+      </div>
+    </div>
+
     <div class="achievement-layout">
-<article class="achievement-hero">
-  <div class="achievement-badge">
-    <span class="achievement-badge-dot"></span>
-    Current dissertation project
-  </div>
 
-  <h3>Selected to work with MindWise on decision-focused analytics for service prioritisation.</h3>
+      <article class="achievement-hero">
+        <div class="achievement-badge">
+          <span class="achievement-badge-dot"></span>
+          Current dissertation project
+        </div>
 
-  <p>
-    Currently one of five students selected to work with MindWise on a dissertation project exploring how analytics can support fairer and more effective service allocation when resources are limited.
-  </p>
+        <h3>Selected to work with MindWise on decision-focused analytics for service prioritisation.</h3>
 
-  <p>
-    The project builds on a decision-focused analytics approach: instead of judging models only by prediction accuracy, it evaluates whether model outputs lead to better allocation decisions. The workflow links prediction models with knapsack optimisation, decision regret analysis, and fairness-aware constraints to understand which service requests should be prioritised under staff or time capacity limits.
-  </p>
+        <p>
+          Currently one of five students selected to work with MindWise on a dissertation project exploring how analytics can support fairer and more effective service allocation when resources are limited.
+        </p>
 
-  <p>
-    This is especially meaningful because MindWise is a leading Northern Ireland mental health charity and a founding member of Mental Health UK, which brings together four national mental health charities working across the UK. MindWise provides over 30 services across Northern Ireland, supporting people affected by mental health issues, carers and families.
-  </p>
+        <p>
+          The project builds on a decision-focused analytics approach: instead of judging models only by prediction accuracy, it evaluates whether model outputs lead to better allocation decisions. The workflow links prediction models with knapsack optimisation, decision regret analysis, and fairness-aware constraints to understand which service requests should be prioritised under staff or time capacity limits.
+        </p>
 
-  <div class="achievement-stats">
-    <div class="achievement-stat">
-      <strong>1 of 5</strong>
-      <span>Students selected for MindWise project work</span>
-    </div>
+        <p>
+          This is especially meaningful because MindWise is a leading Northern Ireland mental health charity and a founding member of Mental Health UK, which brings together four national mental health charities working across the UK. MindWise provides over 30 services across Northern Ireland, supporting people affected by mental health issues, carers and families.
+        </p>
 
-    <div class="achievement-stat">
-      <strong>Mental Health UK</strong>
-      <span>MindWise is one of four national charity partners</span>
-    </div>
+        <div class="achievement-stats">
+          <div class="achievement-stat">
+            <strong>1 of 5</strong>
+            <span>Students selected for MindWise project work</span>
+          </div>
 
-    <div class="achievement-stat">
-      <strong>ML + Optimisation</strong>
-      <span>Prediction models linked to allocation decisions</span>
-    </div>
-  </div>
-</article>
+          <div class="achievement-stat">
+            <strong>Mental Health UK</strong>
+            <span>MindWise is one of four national charity partners</span>
+          </div>
+
+          <div class="achievement-stat">
+            <strong>ML + Optimisation</strong>
+            <span>Prediction models linked to allocation decisions</span>
+          </div>
+        </div>
+      </article>
 
       <div class="achievement-timeline">
 
@@ -2949,51 +3029,52 @@ h1 {
         </article>
 
         <article class="achievement-card">
-  <div class="achievement-icon">02</div>
-  <div class="achievement-content">
-    <div class="achievement-meta">Selected Participant · 2026</div>
-    <h3>QBS Data Duo Mentoring Programme</h3>
-    <p>
-      Allocated a place on Queen’s Business School’s Data Duo Mentoring Programme, a two-way mentoring initiative connecting students with business mentors to exchange career, industry, and analytics insights.
-    </p>
-    <div class="achievement-tags">
-      <span>Business Mentoring</span>
-      <span>Analytics Insight</span>
-      <span>Industry Engagement</span>
-    </div>
-  </div>
-</article>
-<article class="achievement-card">
-  <div class="achievement-icon">03</div>
-  <div class="achievement-content">
-    <div class="achievement-meta">Winner · Team Leader</div>
-    <h3>Unilever Hair Care Marketing Plan Challenge</h3>
-    <p>
-      Led a semester-long marketing plan project for Unilever’s hair care category, collecting primary data, analysing customer insights, and presenting business recommendations directly to Unilever. The plan won first place.
-    </p>
-    <div class="achievement-tags">
-      <span>First Place</span>
-      <span>Primary Research</span>
-      <span>Marketing Strategy</span>
-    </div>
-  </div>
-</article>
-        
-<article class="achievement-card">
-  <div class="achievement-icon">04</div>
-  <div class="achievement-content">
-    <div class="achievement-meta">Consulting & Entrepreneurship · 2026</div>
-    <h3>EY Artificial Intelligence for Mental Healthcare Challenge</h3>
-    <p>
-      Took part in an EY consulting and entrepreneurship challenge focused on the use of artificial intelligence in mental healthcare, exploring how technology could support better access, decision-making, and service delivery.
-    </p>
-    <div class="achievement-tags">
-      <span>AI in Healthcare</span>
-      <span>Consulting</span>
-      <span>Entrepreneurship</span>
-    </div>
-  </div>
-</article>
+          <div class="achievement-icon">02</div>
+          <div class="achievement-content">
+            <div class="achievement-meta">Selected Participant · 2026</div>
+            <h3>QBS Data Duo Mentoring Programme</h3>
+            <p>
+              Allocated a place on Queen’s Business School’s Data Duo Mentoring Programme, a two-way mentoring initiative connecting students with business mentors to exchange career, industry, and analytics insights.
+            </p>
+            <div class="achievement-tags">
+              <span>Business Mentoring</span>
+              <span>Analytics Insight</span>
+              <span>Industry Engagement</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="achievement-card">
+          <div class="achievement-icon">03</div>
+          <div class="achievement-content">
+            <div class="achievement-meta">Winner · Team Leader</div>
+            <h3>Unilever Hair Care Marketing Plan Challenge</h3>
+            <p>
+              Led a semester-long marketing plan project for Unilever’s hair care category, collecting primary data, analysing customer insights, and presenting business recommendations directly to Unilever. The plan won first place.
+            </p>
+            <div class="achievement-tags">
+              <span>First Place</span>
+              <span>Primary Research</span>
+              <span>Marketing Strategy</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="achievement-card">
+          <div class="achievement-icon">04</div>
+          <div class="achievement-content">
+            <div class="achievement-meta">Consulting &amp; Entrepreneurship · 2026</div>
+            <h3>EY Artificial Intelligence for Mental Healthcare Challenge</h3>
+            <p>
+              Took part in an EY consulting and entrepreneurship challenge focused on the use of artificial intelligence in mental healthcare, exploring how technology could support better access, decision-making, and service delivery.
+            </p>
+            <div class="achievement-tags">
+              <span>AI in Healthcare</span>
+              <span>Consulting</span>
+              <span>Entrepreneurship</span>
+            </div>
+          </div>
+        </article>
 
       </div>
     </div>
